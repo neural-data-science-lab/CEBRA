@@ -1,0 +1,1183 @@
+index,token,embedding_file
+0,The email came,embeddings_output/lightweight/embeddings_lightweight.npy
+1,late one afternoon,embeddings_output/lightweight/embeddings_lightweight.npy
+2,as Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+3,Carmen Reed was sitting,embeddings_output/lightweight/embeddings_lightweight.npy
+4,in her office,embeddings_output/lightweight/embeddings_lightweight.npy
+5,filling out medical,embeddings_output/lightweight/embeddings_lightweight.npy
+6,charts for the patients,embeddings_output/lightweight/embeddings_lightweight.npy
+7,she had seen,embeddings_output/lightweight/embeddings_lightweight.npy
+8,that day.,embeddings_output/lightweight/embeddings_lightweight.npy
+9,It had been,embeddings_output/lightweight/embeddings_lightweight.npy
+10,a long day at,embeddings_output/lightweight/embeddings_lightweight.npy
+11,the busy clinic in,embeddings_output/lightweight/embeddings_lightweight.npy
+12,"Chicago where she worked,",embeddings_output/lightweight/embeddings_lightweight.npy
+13,and,embeddings_output/lightweight/embeddings_lightweight.npy
+14,Carmen was tired,embeddings_output/lightweight/embeddings_lightweight.npy
+15,and ready to go home.,embeddings_output/lightweight/embeddings_lightweight.npy
+16,But the,embeddings_output/lightweight/embeddings_lightweight.npy
+17,email's strange,embeddings_output/lightweight/embeddings_lightweight.npy
+18,subject line,embeddings_output/lightweight/embeddings_lightweight.npy
+19,caught her eye:,embeddings_output/lightweight/embeddings_lightweight.npy
+20,"Fellow doctor,",embeddings_output/lightweight/embeddings_lightweight.npy
+21,I need your,embeddings_output/lightweight/embeddings_lightweight.npy
+22,help.,embeddings_output/lightweight/embeddings_lightweight.npy
+23,It was sent by someone,embeddings_output/lightweight/embeddings_lightweight.npy
+24,named Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+25,John Torreson.,embeddings_output/lightweight/embeddings_lightweight.npy
+26,"Intrigued,",embeddings_output/lightweight/embeddings_lightweight.npy
+27,Carmen began,embeddings_output/lightweight/embeddings_lightweight.npy
+28,to read.,embeddings_output/lightweight/embeddings_lightweight.npy
+29,Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+30,Torreson said,embeddings_output/lightweight/embeddings_lightweight.npy
+31,he was a classmate of Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+32,from medical school.,embeddings_output/lightweight/embeddings_lightweight.npy
+33,She did not recognize,embeddings_output/lightweight/embeddings_lightweight.npy
+34,his name - but,embeddings_output/lightweight/embeddings_lightweight.npy
+35,then again she was not,embeddings_output/lightweight/embeddings_lightweight.npy
+36,great with names.,embeddings_output/lightweight/embeddings_lightweight.npy
+37,Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+38,Torreson had,embeddings_output/lightweight/embeddings_lightweight.npy
+39,spent the last two,embeddings_output/lightweight/embeddings_lightweight.npy
+40,two years working,embeddings_output/lightweight/embeddings_lightweight.npy
+41,in a remote part of,embeddings_output/lightweight/embeddings_lightweight.npy
+42,"Peru, deep",embeddings_output/lightweight/embeddings_lightweight.npy
+43,"in the Amazon jungle,",embeddings_output/lightweight/embeddings_lightweight.npy
+44,where,embeddings_output/lightweight/embeddings_lightweight.npy
+45,a nonprofit organization,embeddings_output/lightweight/embeddings_lightweight.npy
+46,had,embeddings_output/lightweight/embeddings_lightweight.npy
+47,built a small medical,embeddings_output/lightweight/embeddings_lightweight.npy
+48,medical clinic for the villagers.,embeddings_output/lightweight/embeddings_lightweight.npy
+49,"But, Dr.",embeddings_output/lightweight/embeddings_lightweight.npy
+50,"Torreson wrote,",embeddings_output/lightweight/embeddings_lightweight.npy
+51,he needed to return,embeddings_output/lightweight/embeddings_lightweight.npy
+52,to the United States,embeddings_output/lightweight/embeddings_lightweight.npy
+53,on very short,embeddings_output/lightweight/embeddings_lightweight.npy
+54,notice.,embeddings_output/lightweight/embeddings_lightweight.npy
+55,The clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+56,was the villagers only,embeddings_output/lightweight/embeddings_lightweight.npy
+57,source of healthcare,embeddings_output/lightweight/embeddings_lightweight.npy
+58,and with Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+59,"Torreson leaving,",embeddings_output/lightweight/embeddings_lightweight.npy
+60,the nonprofit,embeddings_output/lightweight/embeddings_lightweight.npy
+61,was threatening to,embeddings_output/lightweight/embeddings_lightweight.npy
+62,close it down,embeddings_output/lightweight/embeddings_lightweight.npy
+63,unless a replacement,embeddings_output/lightweight/embeddings_lightweight.npy
+64,doctor could be found,embeddings_output/lightweight/embeddings_lightweight.npy
+65,immediately.,embeddings_output/lightweight/embeddings_lightweight.npy
+66,Even,embeddings_output/lightweight/embeddings_lightweight.npy
+67,if Carmen could,embeddings_output/lightweight/embeddings_lightweight.npy
+68,"spare a couple of months,",embeddings_output/lightweight/embeddings_lightweight.npy
+69,it would be an,embeddings_output/lightweight/embeddings_lightweight.npy
+70,enormous help.,embeddings_output/lightweight/embeddings_lightweight.npy
+71,Dr.,embeddings_output/lightweight/embeddings_lightweight.npy
+72,"Torreson wrote,",embeddings_output/lightweight/embeddings_lightweight.npy
+73,it breaks,embeddings_output/lightweight/embeddings_lightweight.npy
+74,my heart to leave this,embeddings_output/lightweight/embeddings_lightweight.npy
+75,"place, but",embeddings_output/lightweight/embeddings_lightweight.npy
+76,I really hope you consider,embeddings_output/lightweight/embeddings_lightweight.npy
+77,coming to work here.,embeddings_output/lightweight/embeddings_lightweight.npy
+78,I think you,embeddings_output/lightweight/embeddings_lightweight.npy
+79,would find it very rewarding.,embeddings_output/lightweight/embeddings_lightweight.npy
+80,Later,embeddings_output/lightweight/embeddings_lightweight.npy
+81,that night Carmen thought,embeddings_output/lightweight/embeddings_lightweight.npy
+82,it over.,embeddings_output/lightweight/embeddings_lightweight.npy
+83,There was little,embeddings_output/lightweight/embeddings_lightweight.npy
+84,tying her to Chicago.,embeddings_output/lightweight/embeddings_lightweight.npy
+85,She,embeddings_output/lightweight/embeddings_lightweight.npy
+86,had friends,embeddings_output/lightweight/embeddings_lightweight.npy
+87,"a house, her",embeddings_output/lightweight/embeddings_lightweight.npy
+88,Sunday morning tennis,embeddings_output/lightweight/embeddings_lightweight.npy
+89,game,embeddings_output/lightweight/embeddings_lightweight.npy
+90,but all of that would be there,embeddings_output/lightweight/embeddings_lightweight.npy
+91,when she got back.,embeddings_output/lightweight/embeddings_lightweight.npy
+92,"Besides,",embeddings_output/lightweight/embeddings_lightweight.npy
+93,"it was November,",embeddings_output/lightweight/embeddings_lightweight.npy
+94,and,embeddings_output/lightweight/embeddings_lightweight.npy
+95,the thought of the upcoming,embeddings_output/lightweight/embeddings_lightweight.npy
+96,winter was enough,embeddings_output/lightweight/embeddings_lightweight.npy
+97,to make a few months,embeddings_output/lightweight/embeddings_lightweight.npy
+98,in the rainforest,embeddings_output/lightweight/embeddings_lightweight.npy
+99,sound pretty appealing.,embeddings_output/lightweight/embeddings_lightweight.npy
+100,She reached for her,embeddings_output/lightweight/embeddings_lightweight.npy
+101,laptop and quickly,embeddings_output/lightweight/embeddings_lightweight.npy
+102,typed her response,embeddings_output/lightweight/embeddings_lightweight.npy
+103,hitting send,embeddings_output/lightweight/embeddings_lightweight.npy
+104,before she could change,embeddings_output/lightweight/embeddings_lightweight.npy
+105,her mind.,embeddings_output/lightweight/embeddings_lightweight.npy
+106,A week,embeddings_output/lightweight/embeddings_lightweight.npy
+107,"later, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+108,was boarding her plane,embeddings_output/lightweight/embeddings_lightweight.npy
+109,at the Chicago airport.,embeddings_output/lightweight/embeddings_lightweight.npy
+110,She was both,embeddings_output/lightweight/embeddings_lightweight.npy
+111,nervous and excited.,embeddings_output/lightweight/embeddings_lightweight.npy
+112,After a,embeddings_output/lightweight/embeddings_lightweight.npy
+113,"layover in Lima,",embeddings_output/lightweight/embeddings_lightweight.npy
+114,it was a,embeddings_output/lightweight/embeddings_lightweight.npy
+115,short flight to Puerto,embeddings_output/lightweight/embeddings_lightweight.npy
+116,"Maldonado,",embeddings_output/lightweight/embeddings_lightweight.npy
+117,a small town,embeddings_output/lightweight/embeddings_lightweight.npy
+118,at the edge of the Amazon,embeddings_output/lightweight/embeddings_lightweight.npy
+119,jungle.,embeddings_output/lightweight/embeddings_lightweight.npy
+120,As the plane,embeddings_output/lightweight/embeddings_lightweight.npy
+121,"started to descend,",embeddings_output/lightweight/embeddings_lightweight.npy
+122,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+123,looked down eagerly,embeddings_output/lightweight/embeddings_lightweight.npy
+124,at the landscape,embeddings_output/lightweight/embeddings_lightweight.npy
+125,below,embeddings_output/lightweight/embeddings_lightweight.npy
+126,a carpet of blue green,embeddings_output/lightweight/embeddings_lightweight.npy
+127,"trees, with",embeddings_output/lightweight/embeddings_lightweight.npy
+128,a brown river snaking,embeddings_output/lightweight/embeddings_lightweight.npy
+129,through it.,embeddings_output/lightweight/embeddings_lightweight.npy
+130,"It looked beautiful,",embeddings_output/lightweight/embeddings_lightweight.npy
+131,and completely,embeddings_output/lightweight/embeddings_lightweight.npy
+132,wild.,embeddings_output/lightweight/embeddings_lightweight.npy
+133,"Stepping out onto the runway,",embeddings_output/lightweight/embeddings_lightweight.npy
+134,a blast,embeddings_output/lightweight/embeddings_lightweight.npy
+135,of steamy air hit,embeddings_output/lightweight/embeddings_lightweight.npy
+136,"Carmen face,",embeddings_output/lightweight/embeddings_lightweight.npy
+137,filling her,embeddings_output/lightweight/embeddings_lightweight.npy
+138,mouth and nostrils.,embeddings_output/lightweight/embeddings_lightweight.npy
+139,"Whoa,",embeddings_output/lightweight/embeddings_lightweight.npy
+140,she thought to herself.,embeddings_output/lightweight/embeddings_lightweight.npy
+141,Welcome to the jungle.,embeddings_output/lightweight/embeddings_lightweight.npy
+142,Inside,embeddings_output/lightweight/embeddings_lightweight.npy
+143,the tiny airport,embeddings_output/lightweight/embeddings_lightweight.npy
+144,"terminal, a man",embeddings_output/lightweight/embeddings_lightweight.npy
+145,stood clutching,embeddings_output/lightweight/embeddings_lightweight.npy
+146,a piece of paper with Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+147,name on it.,embeddings_output/lightweight/embeddings_lightweight.npy
+148,Antonio,embeddings_output/lightweight/embeddings_lightweight.npy
+149,the man said,embeddings_output/lightweight/embeddings_lightweight.npy
+150,pointing at his chest.,embeddings_output/lightweight/embeddings_lightweight.npy
+151,He motioned for Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+152,to follow him.,embeddings_output/lightweight/embeddings_lightweight.npy
+153,They walked out,embeddings_output/lightweight/embeddings_lightweight.npy
+154,of the terminal and,embeddings_output/lightweight/embeddings_lightweight.npy
+155,Carmen was once again,embeddings_output/lightweight/embeddings_lightweight.npy
+156,hit by a wave,embeddings_output/lightweight/embeddings_lightweight.npy
+157,of humid air.,embeddings_output/lightweight/embeddings_lightweight.npy
+158,Antonio,embeddings_output/lightweight/embeddings_lightweight.npy
+159,led her to a,embeddings_output/lightweight/embeddings_lightweight.npy
+160,rundown motorcycle,embeddings_output/lightweight/embeddings_lightweight.npy
+161,with a seat attached,embeddings_output/lightweight/embeddings_lightweight.npy
+162,to the back.,embeddings_output/lightweight/embeddings_lightweight.npy
+163,Carmen sat down,embeddings_output/lightweight/embeddings_lightweight.npy
+164,apprehensively.,embeddings_output/lightweight/embeddings_lightweight.npy
+165,But,embeddings_output/lightweight/embeddings_lightweight.npy
+166,once Antonio started,embeddings_output/lightweight/embeddings_lightweight.npy
+167,"driving, the breeze",embeddings_output/lightweight/embeddings_lightweight.npy
+168,felt wonderful,embeddings_output/lightweight/embeddings_lightweight.npy
+169,against Carmen skin.,embeddings_output/lightweight/embeddings_lightweight.npy
+170,The main road,embeddings_output/lightweight/embeddings_lightweight.npy
+171,through the town,embeddings_output/lightweight/embeddings_lightweight.npy
+172,was full of sights,embeddings_output/lightweight/embeddings_lightweight.npy
+173,and sounds,embeddings_output/lightweight/embeddings_lightweight.npy
+174,children darted,embeddings_output/lightweight/embeddings_lightweight.npy
+175,between the vehicles,embeddings_output/lightweight/embeddings_lightweight.npy
+176,women in,embeddings_output/lightweight/embeddings_lightweight.npy
+177,flipflops carrying,embeddings_output/lightweight/embeddings_lightweight.npy
+178,huge baskets of,embeddings_output/lightweight/embeddings_lightweight.npy
+179,goods,embeddings_output/lightweight/embeddings_lightweight.npy
+180,street vendors,embeddings_output/lightweight/embeddings_lightweight.npy
+181,sold giant tropical,embeddings_output/lightweight/embeddings_lightweight.npy
+182,fruits that Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+183,could not name.,embeddings_output/lightweight/embeddings_lightweight.npy
+184,"Soon,",embeddings_output/lightweight/embeddings_lightweight.npy
+185,Antonio turned,embeddings_output/lightweight/embeddings_lightweight.npy
+186,onto a side street,embeddings_output/lightweight/embeddings_lightweight.npy
+187,which led down,embeddings_output/lightweight/embeddings_lightweight.npy
+188,to a river.,embeddings_output/lightweight/embeddings_lightweight.npy
+189,"There, a boat",embeddings_output/lightweight/embeddings_lightweight.npy
+190,was waiting to take,embeddings_output/lightweight/embeddings_lightweight.npy
+191,her on the final leg,embeddings_output/lightweight/embeddings_lightweight.npy
+192,of the journey to,embeddings_output/lightweight/embeddings_lightweight.npy
+193,the remote village.,embeddings_output/lightweight/embeddings_lightweight.npy
+194,Once Carmen and,embeddings_output/lightweight/embeddings_lightweight.npy
+195,her suitcase were safely,embeddings_output/lightweight/embeddings_lightweight.npy
+196,"inside the boat,",embeddings_output/lightweight/embeddings_lightweight.npy
+197,the driver set,embeddings_output/lightweight/embeddings_lightweight.npy
+198,off on the river.,embeddings_output/lightweight/embeddings_lightweight.npy
+199,By this,embeddings_output/lightweight/embeddings_lightweight.npy
+200,"time, the sun was setting,",embeddings_output/lightweight/embeddings_lightweight.npy
+201,and Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+202,swatted away mosquitos,embeddings_output/lightweight/embeddings_lightweight.npy
+203,as the driver,embeddings_output/lightweight/embeddings_lightweight.npy
+204,whistled to himself.,embeddings_output/lightweight/embeddings_lightweight.npy
+205,"The water was calm,",embeddings_output/lightweight/embeddings_lightweight.npy
+206,"the air still,",embeddings_output/lightweight/embeddings_lightweight.npy
+207,Carmen suddenly felt,embeddings_output/lightweight/embeddings_lightweight.npy
+208,very far from everything,embeddings_output/lightweight/embeddings_lightweight.npy
+209,and everyone,embeddings_output/lightweight/embeddings_lightweight.npy
+210,she knew.,embeddings_output/lightweight/embeddings_lightweight.npy
+211,After what felt like,embeddings_output/lightweight/embeddings_lightweight.npy
+212,"a very long time,",embeddings_output/lightweight/embeddings_lightweight.npy
+213,the driver,embeddings_output/lightweight/embeddings_lightweight.npy
+214,turned the boat toward,embeddings_output/lightweight/embeddings_lightweight.npy
+215,shore.,embeddings_output/lightweight/embeddings_lightweight.npy
+216,She wondered,embeddings_output/lightweight/embeddings_lightweight.npy
+217,how he had recognized,embeddings_output/lightweight/embeddings_lightweight.npy
+218,their destination,embeddings_output/lightweight/embeddings_lightweight.npy
+219,there was no,embeddings_output/lightweight/embeddings_lightweight.npy
+220,sign of civilization,embeddings_output/lightweight/embeddings_lightweight.npy
+221,anywhere.,embeddings_output/lightweight/embeddings_lightweight.npy
+222,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+223,climbed awkwardly,embeddings_output/lightweight/embeddings_lightweight.npy
+224,onto the muddy,embeddings_output/lightweight/embeddings_lightweight.npy
+225,"riverbank,",embeddings_output/lightweight/embeddings_lightweight.npy
+226,trying to keep her balance,embeddings_output/lightweight/embeddings_lightweight.npy
+227,in the fading,embeddings_output/lightweight/embeddings_lightweight.npy
+228,light.,embeddings_output/lightweight/embeddings_lightweight.npy
+229,Just as she managed,embeddings_output/lightweight/embeddings_lightweight.npy
+230,to lift her suitcase,embeddings_output/lightweight/embeddings_lightweight.npy
+231,up beside,embeddings_output/lightweight/embeddings_lightweight.npy
+232,"her, she",embeddings_output/lightweight/embeddings_lightweight.npy
+233,looked out over,embeddings_output/lightweight/embeddings_lightweight.npy
+234,her shoulder to see the,embeddings_output/lightweight/embeddings_lightweight.npy
+235,driver was already,embeddings_output/lightweight/embeddings_lightweight.npy
+236,motoring back up,embeddings_output/lightweight/embeddings_lightweight.npy
+237,the river.,embeddings_output/lightweight/embeddings_lightweight.npy
+238,Wait! she called,embeddings_output/lightweight/embeddings_lightweight.npy
+239,"out, alarmed.",embeddings_output/lightweight/embeddings_lightweight.npy
+240,Where do I go,embeddings_output/lightweight/embeddings_lightweight.npy
+241,from here?,embeddings_output/lightweight/embeddings_lightweight.npy
+242,Her voice,embeddings_output/lightweight/embeddings_lightweight.npy
+243,was drowned out by,embeddings_output/lightweight/embeddings_lightweight.npy
+244,the buzzing of insects,embeddings_output/lightweight/embeddings_lightweight.npy
+245,and rushing,embeddings_output/lightweight/embeddings_lightweight.npy
+246,of the river.,embeddings_output/lightweight/embeddings_lightweight.npy
+247,She,embeddings_output/lightweight/embeddings_lightweight.npy
+248,looked around,embeddings_output/lightweight/embeddings_lightweight.npy
+249,nothing,embeddings_output/lightweight/embeddings_lightweight.npy
+250,but dense shadowy,embeddings_output/lightweight/embeddings_lightweight.npy
+251,rainforest.,embeddings_output/lightweight/embeddings_lightweight.npy
+252,Just as she was about,embeddings_output/lightweight/embeddings_lightweight.npy
+253,"to panic, she",embeddings_output/lightweight/embeddings_lightweight.npy
+254,heard footsteps,embeddings_output/lightweight/embeddings_lightweight.npy
+255,from within the brush.,embeddings_output/lightweight/embeddings_lightweight.npy
+256,A man emerged,embeddings_output/lightweight/embeddings_lightweight.npy
+257,"from the trees, holding",embeddings_output/lightweight/embeddings_lightweight.npy
+258,a lantern.,embeddings_output/lightweight/embeddings_lightweight.npy
+259,When he saw,embeddings_output/lightweight/embeddings_lightweight.npy
+260,"Carmen, he smiled",embeddings_output/lightweight/embeddings_lightweight.npy
+261,broadly.,embeddings_output/lightweight/embeddings_lightweight.npy
+262,"Hello, Dr.",embeddings_output/lightweight/embeddings_lightweight.npy
+263,Carmen- he said,embeddings_output/lightweight/embeddings_lightweight.npy
+264,I'm,embeddings_output/lightweight/embeddings_lightweight.npy
+265,Juan.,embeddings_output/lightweight/embeddings_lightweight.npy
+266,Juan Torres.,embeddings_output/lightweight/embeddings_lightweight.npy
+267,We thank you,embeddings_output/lightweight/embeddings_lightweight.npy
+268,very much for coming to,embeddings_output/lightweight/embeddings_lightweight.npy
+269,serve our village.,embeddings_output/lightweight/embeddings_lightweight.npy
+270,Though,embeddings_output/lightweight/embeddings_lightweight.npy
+271,he spoke with a heavy,embeddings_output/lightweight/embeddings_lightweight.npy
+272,"accent, his English",embeddings_output/lightweight/embeddings_lightweight.npy
+273,was very good.,embeddings_output/lightweight/embeddings_lightweight.npy
+274,With,embeddings_output/lightweight/embeddings_lightweight.npy
+275,"a sigh of relief,",embeddings_output/lightweight/embeddings_lightweight.npy
+276,Carmen smiled,embeddings_output/lightweight/embeddings_lightweight.npy
+277,and shook his hand.,embeddings_output/lightweight/embeddings_lightweight.npy
+278,Juan led her,embeddings_output/lightweight/embeddings_lightweight.npy
+279,down a narrow path,embeddings_output/lightweight/embeddings_lightweight.npy
+280,through the forest.,embeddings_output/lightweight/embeddings_lightweight.npy
+281,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+282,struggled to keep,embeddings_output/lightweight/embeddings_lightweight.npy
+283,"up, tugging her suitcase",embeddings_output/lightweight/embeddings_lightweight.npy
+284,over the uneven,embeddings_output/lightweight/embeddings_lightweight.npy
+285,ground.,embeddings_output/lightweight/embeddings_lightweight.npy
+286,"Soon,",embeddings_output/lightweight/embeddings_lightweight.npy
+287,they emerged into,embeddings_output/lightweight/embeddings_lightweight.npy
+288,a clearing.,embeddings_output/lightweight/embeddings_lightweight.npy
+289,It was nearly pitch,embeddings_output/lightweight/embeddings_lightweight.npy
+290,"black now,",embeddings_output/lightweight/embeddings_lightweight.npy
+291,but Carmen could make,embeddings_output/lightweight/embeddings_lightweight.npy
+292,out the shapes of huts,embeddings_output/lightweight/embeddings_lightweight.npy
+293,with thatched,embeddings_output/lightweight/embeddings_lightweight.npy
+294,roofs.,embeddings_output/lightweight/embeddings_lightweight.npy
+295,Juan ushered,embeddings_output/lightweight/embeddings_lightweight.npy
+296,her towards one of,embeddings_output/lightweight/embeddings_lightweight.npy
+297,them.,embeddings_output/lightweight/embeddings_lightweight.npy
+298,Inside were a few,embeddings_output/lightweight/embeddings_lightweight.npy
+299,pieces of simple,embeddings_output/lightweight/embeddings_lightweight.npy
+300,wooden furniture,embeddings_output/lightweight/embeddings_lightweight.npy
+301,"a bed frame,",embeddings_output/lightweight/embeddings_lightweight.npy
+302,covered by a thin,embeddings_output/lightweight/embeddings_lightweight.npy
+303,mattress and a small,embeddings_output/lightweight/embeddings_lightweight.npy
+304,table.,embeddings_output/lightweight/embeddings_lightweight.npy
+305,The floor was packed,embeddings_output/lightweight/embeddings_lightweight.npy
+306,dirt.,embeddings_output/lightweight/embeddings_lightweight.npy
+307,Juan put,embeddings_output/lightweight/embeddings_lightweight.npy
+308,the lantern on the table.,embeddings_output/lightweight/embeddings_lightweight.npy
+309,You must be very,embeddings_output/lightweight/embeddings_lightweight.npy
+310,tired from the journey,embeddings_output/lightweight/embeddings_lightweight.npy
+311,he said.,embeddings_output/lightweight/embeddings_lightweight.npy
+312,You should rest now.,embeddings_output/lightweight/embeddings_lightweight.npy
+313,We will see,embeddings_output/lightweight/embeddings_lightweight.npy
+314,each other tomorrow.,embeddings_output/lightweight/embeddings_lightweight.npy
+315,He nodded,embeddings_output/lightweight/embeddings_lightweight.npy
+316,and bowed out of the,embeddings_output/lightweight/embeddings_lightweight.npy
+317,hut.,embeddings_output/lightweight/embeddings_lightweight.npy
+318,As soon,embeddings_output/lightweight/embeddings_lightweight.npy
+319,as Carmen sat down,embeddings_output/lightweight/embeddings_lightweight.npy
+320,"on the bed, she felt",embeddings_output/lightweight/embeddings_lightweight.npy
+321,completely exhausted.,embeddings_output/lightweight/embeddings_lightweight.npy
+322,She arranged the,embeddings_output/lightweight/embeddings_lightweight.npy
+323,mosquito net around,embeddings_output/lightweight/embeddings_lightweight.npy
+324,her as best she,embeddings_output/lightweight/embeddings_lightweight.npy
+325,could and,embeddings_output/lightweight/embeddings_lightweight.npy
+326,fell immediately into,embeddings_output/lightweight/embeddings_lightweight.npy
+327,a deep sleep.,embeddings_output/lightweight/embeddings_lightweight.npy
+328,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+329,woke the next morning,embeddings_output/lightweight/embeddings_lightweight.npy
+330,to sunlight,embeddings_output/lightweight/embeddings_lightweight.npy
+331,streaming through the,embeddings_output/lightweight/embeddings_lightweight.npy
+332,wooden slats of the,embeddings_output/lightweight/embeddings_lightweight.npy
+333,hut.,embeddings_output/lightweight/embeddings_lightweight.npy
+334,She had no idea,embeddings_output/lightweight/embeddings_lightweight.npy
+335,how long she had slept.,embeddings_output/lightweight/embeddings_lightweight.npy
+336,She,embeddings_output/lightweight/embeddings_lightweight.npy
+337,propped herself up,embeddings_output/lightweight/embeddings_lightweight.npy
+338,on one elbow,embeddings_output/lightweight/embeddings_lightweight.npy
+339,and squinted at her,embeddings_output/lightweight/embeddings_lightweight.npy
+340,surroundings.,embeddings_output/lightweight/embeddings_lightweight.npy
+341,"Suddenly,",embeddings_output/lightweight/embeddings_lightweight.npy
+342,she heard a rustling in,embeddings_output/lightweight/embeddings_lightweight.npy
+343,the corner.,embeddings_output/lightweight/embeddings_lightweight.npy
+344,A small figure,embeddings_output/lightweight/embeddings_lightweight.npy
+345,"stood there, holding",embeddings_output/lightweight/embeddings_lightweight.npy
+346,a broom made,embeddings_output/lightweight/embeddings_lightweight.npy
+347,from Palm leaves.,embeddings_output/lightweight/embeddings_lightweight.npy
+348,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+349,nearly screeched,embeddings_output/lightweight/embeddings_lightweight.npy
+350,"in shock, but",embeddings_output/lightweight/embeddings_lightweight.npy
+351,stopped herself at the last,embeddings_output/lightweight/embeddings_lightweight.npy
+352,"moment, so",embeddings_output/lightweight/embeddings_lightweight.npy
+353,that what came out,embeddings_output/lightweight/embeddings_lightweight.npy
+354,was a garbled yell.,embeddings_output/lightweight/embeddings_lightweight.npy
+355,The noise,embeddings_output/lightweight/embeddings_lightweight.npy
+356,frightened the girl,embeddings_output/lightweight/embeddings_lightweight.npy
+357,and she jumped back.,embeddings_output/lightweight/embeddings_lightweight.npy
+358,"Sorry,",embeddings_output/lightweight/embeddings_lightweight.npy
+359,you startled me!,embeddings_output/lightweight/embeddings_lightweight.npy
+360,Carmen said,embeddings_output/lightweight/embeddings_lightweight.npy
+361,the,embeddings_output/lightweight/embeddings_lightweight.npy
+362,girl continued to stare,embeddings_output/lightweight/embeddings_lightweight.npy
+363,at her with huge,embeddings_output/lightweight/embeddings_lightweight.npy
+364,brown eyes.,embeddings_output/lightweight/embeddings_lightweight.npy
+365,She looked,embeddings_output/lightweight/embeddings_lightweight.npy
+366,to be around 11,embeddings_output/lightweight/embeddings_lightweight.npy
+367,12 years old.,embeddings_output/lightweight/embeddings_lightweight.npy
+368,It dawned,embeddings_output/lightweight/embeddings_lightweight.npy
+369,on Carmen that,embeddings_output/lightweight/embeddings_lightweight.npy
+370,"[""she probably did not speak]",embeddings_output/lightweight/embeddings_lightweight.npy
+371,English.,embeddings_output/lightweight/embeddings_lightweight.npy
+372,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+373,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+374,said pointing,embeddings_output/lightweight/embeddings_lightweight.npy
+375,at her chest,embeddings_output/lightweight/embeddings_lightweight.npy
+376,"Alba, the",embeddings_output/lightweight/embeddings_lightweight.npy
+377,girl answered pointing,embeddings_output/lightweight/embeddings_lightweight.npy
+378,at her own.,embeddings_output/lightweight/embeddings_lightweight.npy
+379,Juan?,embeddings_output/lightweight/embeddings_lightweight.npy
+380,Carmen asked,embeddings_output/lightweight/embeddings_lightweight.npy
+381,"holding up her hands,",embeddings_output/lightweight/embeddings_lightweight.npy
+382,hoping,embeddings_output/lightweight/embeddings_lightweight.npy
+383,the girl could lead her,embeddings_output/lightweight/embeddings_lightweight.npy
+384,to the man from the night,embeddings_output/lightweight/embeddings_lightweight.npy
+385,"[""before'.]",embeddings_output/lightweight/embeddings_lightweight.npy
+386,"Nodding,",embeddings_output/lightweight/embeddings_lightweight.npy
+387,Alba motioned,embeddings_output/lightweight/embeddings_lightweight.npy
+388,for Carmen to follow,embeddings_output/lightweight/embeddings_lightweight.npy
+389,"her outside,",embeddings_output/lightweight/embeddings_lightweight.npy
+390,and Carmen got,embeddings_output/lightweight/embeddings_lightweight.npy
+391,her first glimpse of,embeddings_output/lightweight/embeddings_lightweight.npy
+392,the village in daylight.,embeddings_output/lightweight/embeddings_lightweight.npy
+393,Her hut was near,embeddings_output/lightweight/embeddings_lightweight.npy
+394,what appeared to be the village,embeddings_output/lightweight/embeddings_lightweight.npy
+395,center.,embeddings_output/lightweight/embeddings_lightweight.npy
+396,Women,embeddings_output/lightweight/embeddings_lightweight.npy
+397,stood around small,embeddings_output/lightweight/embeddings_lightweight.npy
+398,"fires, smoking",embeddings_output/lightweight/embeddings_lightweight.npy
+399,meats and stirring,embeddings_output/lightweight/embeddings_lightweight.npy
+400,soups.,embeddings_output/lightweight/embeddings_lightweight.npy
+401,Children,embeddings_output/lightweight/embeddings_lightweight.npy
+402,"ran around them,",embeddings_output/lightweight/embeddings_lightweight.npy
+403,dodging vines,embeddings_output/lightweight/embeddings_lightweight.npy
+404,on the ground.,embeddings_output/lightweight/embeddings_lightweight.npy
+405,A group of teenage,embeddings_output/lightweight/embeddings_lightweight.npy
+406,boys was hard,embeddings_output/lightweight/embeddings_lightweight.npy
+407,at work constructing,embeddings_output/lightweight/embeddings_lightweight.npy
+408,a new hut.,embeddings_output/lightweight/embeddings_lightweight.npy
+409,"Scanning the scene,",embeddings_output/lightweight/embeddings_lightweight.npy
+410,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+411,spotted Juan across,embeddings_output/lightweight/embeddings_lightweight.npy
+412,"the clearing, deep",embeddings_output/lightweight/embeddings_lightweight.npy
+413,in conversation with,embeddings_output/lightweight/embeddings_lightweight.npy
+414,a small group of men.,embeddings_output/lightweight/embeddings_lightweight.npy
+415,Their clothing was more,embeddings_output/lightweight/embeddings_lightweight.npy
+416,decorative than most,embeddings_output/lightweight/embeddings_lightweight.npy
+417,"of the other villagers,",embeddings_output/lightweight/embeddings_lightweight.npy
+418,which made,embeddings_output/lightweight/embeddings_lightweight.npy
+419,Carmen think that they were,embeddings_output/lightweight/embeddings_lightweight.npy
+420,leaders of some sort.,embeddings_output/lightweight/embeddings_lightweight.npy
+421,When Juan noticed,embeddings_output/lightweight/embeddings_lightweight.npy
+422,"her, he whispered",embeddings_output/lightweight/embeddings_lightweight.npy
+423,"something to the other men,",embeddings_output/lightweight/embeddings_lightweight.npy
+424,who also,embeddings_output/lightweight/embeddings_lightweight.npy
+425,turned to stare,embeddings_output/lightweight/embeddings_lightweight.npy
+426,at Carmen.,embeddings_output/lightweight/embeddings_lightweight.npy
+427,For a brief,embeddings_output/lightweight/embeddings_lightweight.npy
+428,moment Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+429,felt uncomfortable,embeddings_output/lightweight/embeddings_lightweight.npy
+430,but then Juan,embeddings_output/lightweight/embeddings_lightweight.npy
+431,broke into a smile,embeddings_output/lightweight/embeddings_lightweight.npy
+432,and Strode over.,embeddings_output/lightweight/embeddings_lightweight.npy
+433,"Dr. Carmen, good",embeddings_output/lightweight/embeddings_lightweight.npy
+434,morning! he,embeddings_output/lightweight/embeddings_lightweight.npy
+435,said. I,embeddings_output/lightweight/embeddings_lightweight.npy
+436,will show you to the clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+437,"now, yes?",embeddings_output/lightweight/embeddings_lightweight.npy
+438,Yes,embeddings_output/lightweight/embeddings_lightweight.npy
+439,"please, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+440,"said, eager to get",embeddings_output/lightweight/embeddings_lightweight.npy
+441,started.,embeddings_output/lightweight/embeddings_lightweight.npy
+442,Juan,embeddings_output/lightweight/embeddings_lightweight.npy
+443,led Carmen down a,embeddings_output/lightweight/embeddings_lightweight.npy
+444,short path to,embeddings_output/lightweight/embeddings_lightweight.npy
+445,a hut that looked identical,embeddings_output/lightweight/embeddings_lightweight.npy
+446,to her own.,embeddings_output/lightweight/embeddings_lightweight.npy
+447,Inside,embeddings_output/lightweight/embeddings_lightweight.npy
+448,were two mattresses,embeddings_output/lightweight/embeddings_lightweight.npy
+449,placed directly,embeddings_output/lightweight/embeddings_lightweight.npy
+450,"on the ground,",embeddings_output/lightweight/embeddings_lightweight.npy
+451,plus a makeshift,embeddings_output/lightweight/embeddings_lightweight.npy
+452,table.,embeddings_output/lightweight/embeddings_lightweight.npy
+453,The only medical supplies,embeddings_output/lightweight/embeddings_lightweight.npy
+454,appeared to be,embeddings_output/lightweight/embeddings_lightweight.npy
+455,an old fashioned,embeddings_output/lightweight/embeddings_lightweight.npy
+456,"stethoscope,",embeddings_output/lightweight/embeddings_lightweight.npy
+457,a thermometer,embeddings_output/lightweight/embeddings_lightweight.npy
+458,and half empty box,embeddings_output/lightweight/embeddings_lightweight.npy
+459,of bandages.,embeddings_output/lightweight/embeddings_lightweight.npy
+460,"Hmm,",embeddings_output/lightweight/embeddings_lightweight.npy
+461,that is funny.,embeddings_output/lightweight/embeddings_lightweight.npy
+462,Dr. Torreson,embeddings_output/lightweight/embeddings_lightweight.npy
+463,said the clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+464,was well-stocked,embeddings_output/lightweight/embeddings_lightweight.npy
+465,Carmen started to,embeddings_output/lightweight/embeddings_lightweight.npy
+466,say.,embeddings_output/lightweight/embeddings_lightweight.npy
+467,Dr. Torreson?,embeddings_output/lightweight/embeddings_lightweight.npy
+468,"Juan repeated, looking",embeddings_output/lightweight/embeddings_lightweight.npy
+469,confused.,embeddings_output/lightweight/embeddings_lightweight.npy
+470,"Ah, si,",embeddings_output/lightweight/embeddings_lightweight.npy
+471,"Senor Torreson,",embeddings_output/lightweight/embeddings_lightweight.npy
+472,of course.,embeddings_output/lightweight/embeddings_lightweight.npy
+473,The organization,embeddings_output/lightweight/embeddings_lightweight.npy
+474,has promised,embeddings_output/lightweight/embeddings_lightweight.npy
+475,to send us replacement,embeddings_output/lightweight/embeddings_lightweight.npy
+476,"supplies,",embeddings_output/lightweight/embeddings_lightweight.npy
+477,but they have not,embeddings_output/lightweight/embeddings_lightweight.npy
+478,arrived yet.,embeddings_output/lightweight/embeddings_lightweight.npy
+479,The shipments,embeddings_output/lightweight/embeddings_lightweight.npy
+480,"are always being delayed,",embeddings_output/lightweight/embeddings_lightweight.npy
+481,you know,embeddings_output/lightweight/embeddings_lightweight.npy
+482,he added apologetically.,embeddings_output/lightweight/embeddings_lightweight.npy
+483,That is okay,embeddings_output/lightweight/embeddings_lightweight.npy
+484,Carmen said.,embeddings_output/lightweight/embeddings_lightweight.npy
+485,She would have to,embeddings_output/lightweight/embeddings_lightweight.npy
+486,make do with small,embeddings_output/lightweight/embeddings_lightweight.npy
+487,bag of supplies,embeddings_output/lightweight/embeddings_lightweight.npy
+488,she had brought with her,embeddings_output/lightweight/embeddings_lightweight.npy
+489,until the shipment arrived.,embeddings_output/lightweight/embeddings_lightweight.npy
+490,During Carmen first,embeddings_output/lightweight/embeddings_lightweight.npy
+491,"few days in the clinic,",embeddings_output/lightweight/embeddings_lightweight.npy
+492,most of,embeddings_output/lightweight/embeddings_lightweight.npy
+493,the patients she,embeddings_output/lightweight/embeddings_lightweight.npy
+494,saw had fairly minor,embeddings_output/lightweight/embeddings_lightweight.npy
+495,problems:,embeddings_output/lightweight/embeddings_lightweight.npy
+496,cuts and scrapes,embeddings_output/lightweight/embeddings_lightweight.npy
+497,toothaches,embeddings_output/lightweight/embeddings_lightweight.npy
+498,indigestion.,embeddings_output/lightweight/embeddings_lightweight.npy
+499,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+500,had a feeling that many,embeddings_output/lightweight/embeddings_lightweight.npy
+501,of the people came,embeddings_output/lightweight/embeddings_lightweight.npy
+502,less out of health concerns,embeddings_output/lightweight/embeddings_lightweight.npy
+503,and,embeddings_output/lightweight/embeddings_lightweight.npy
+504,"more out of curiosity,",embeddings_output/lightweight/embeddings_lightweight.npy
+505,to see,embeddings_output/lightweight/embeddings_lightweight.npy
+506,the foreign woman,embeddings_output/lightweight/embeddings_lightweight.npy
+507,who spoke broken,embeddings_output/lightweight/embeddings_lightweight.npy
+508,Spanish and wore funny,embeddings_output/lightweight/embeddings_lightweight.npy
+509,"clothes,",embeddings_output/lightweight/embeddings_lightweight.npy
+510,but she did not mind,embeddings_output/lightweight/embeddings_lightweight.npy
+511,she found,embeddings_output/lightweight/embeddings_lightweight.npy
+512,them just as interesting,embeddings_output/lightweight/embeddings_lightweight.npy
+513,as they found her.,embeddings_output/lightweight/embeddings_lightweight.npy
+514,Most,embeddings_output/lightweight/embeddings_lightweight.npy
+515,of them spoke a mix,embeddings_output/lightweight/embeddings_lightweight.npy
+516,of Spanish,embeddings_output/lightweight/embeddings_lightweight.npy
+517,and another language native,embeddings_output/lightweight/embeddings_lightweight.npy
+518,to the region.,embeddings_output/lightweight/embeddings_lightweight.npy
+519,When Juan,embeddings_output/lightweight/embeddings_lightweight.npy
+520,"was around, he could",embeddings_output/lightweight/embeddings_lightweight.npy
+521,translate but,embeddings_output/lightweight/embeddings_lightweight.npy
+522,mostly Carmen and,embeddings_output/lightweight/embeddings_lightweight.npy
+523,her patients got by,embeddings_output/lightweight/embeddings_lightweight.npy
+524,with hand gestures,embeddings_output/lightweight/embeddings_lightweight.npy
+525,and facial expressions.,embeddings_output/lightweight/embeddings_lightweight.npy
+526,The villagers appreciated,embeddings_output/lightweight/embeddings_lightweight.npy
+527,her help,embeddings_output/lightweight/embeddings_lightweight.npy
+528,and Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+529,found it very fulfilling,embeddings_output/lightweight/embeddings_lightweight.npy
+530,to care for them.,embeddings_output/lightweight/embeddings_lightweight.npy
+531,Though she had been,embeddings_output/lightweight/embeddings_lightweight.npy
+532,"shy in the beginning,",embeddings_output/lightweight/embeddings_lightweight.npy
+533,Alba proved,embeddings_output/lightweight/embeddings_lightweight.npy
+534,a wonderful companion.,embeddings_output/lightweight/embeddings_lightweight.npy
+535,"Each morning, she would bring",embeddings_output/lightweight/embeddings_lightweight.npy
+536,Carmen a potent,embeddings_output/lightweight/embeddings_lightweight.npy
+537,mix of leaves in,embeddings_output/lightweight/embeddings_lightweight.npy
+538,"hot water,",embeddings_output/lightweight/embeddings_lightweight.npy
+539,and a breakfast of mashed,embeddings_output/lightweight/embeddings_lightweight.npy
+540,plantains and fried,embeddings_output/lightweight/embeddings_lightweight.npy
+541,pork.,embeddings_output/lightweight/embeddings_lightweight.npy
+542,"In the evenings,",embeddings_output/lightweight/embeddings_lightweight.npy
+543,after Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+544,"left the clinic,",embeddings_output/lightweight/embeddings_lightweight.npy
+545,Alba would often,embeddings_output/lightweight/embeddings_lightweight.npy
+546,come by her hut.,embeddings_output/lightweight/embeddings_lightweight.npy
+547,She,embeddings_output/lightweight/embeddings_lightweight.npy
+548,was supposed to clean for,embeddings_output/lightweight/embeddings_lightweight.npy
+549,"Carmen, but",embeddings_output/lightweight/embeddings_lightweight.npy
+550,the two usually ended,embeddings_output/lightweight/embeddings_lightweight.npy
+551,up playing games,embeddings_output/lightweight/embeddings_lightweight.npy
+552,or telling stories instead.,embeddings_output/lightweight/embeddings_lightweight.npy
+553,Alba was patient,embeddings_output/lightweight/embeddings_lightweight.npy
+554,with Carmen slow,embeddings_output/lightweight/embeddings_lightweight.npy
+555,Spanish,embeddings_output/lightweight/embeddings_lightweight.npy
+556,and Carmen language,embeddings_output/lightweight/embeddings_lightweight.npy
+557,skills improved.,embeddings_output/lightweight/embeddings_lightweight.npy
+558,"In turn, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+559,began to teach,embeddings_output/lightweight/embeddings_lightweight.npy
+560,Alba English.,embeddings_output/lightweight/embeddings_lightweight.npy
+561,The girl,embeddings_output/lightweight/embeddings_lightweight.npy
+562,picked up words amazingly,embeddings_output/lightweight/embeddings_lightweight.npy
+563,fast,embeddings_output/lightweight/embeddings_lightweight.npy
+564,and soon she,embeddings_output/lightweight/embeddings_lightweight.npy
+565,could name most,embeddings_output/lightweight/embeddings_lightweight.npy
+566,everything she saw,embeddings_output/lightweight/embeddings_lightweight.npy
+567,bed,embeddings_output/lightweight/embeddings_lightweight.npy
+568,table,embeddings_output/lightweight/embeddings_lightweight.npy
+569,hut,embeddings_output/lightweight/embeddings_lightweight.npy
+570,"man, woman",embeddings_output/lightweight/embeddings_lightweight.npy
+571,child,embeddings_output/lightweight/embeddings_lightweight.npy
+572,river,embeddings_output/lightweight/embeddings_lightweight.npy
+573,"[ 'tree""]",embeddings_output/lightweight/embeddings_lightweight.npy
+574,fire,embeddings_output/lightweight/embeddings_lightweight.npy
+575,doctor,embeddings_output/lightweight/embeddings_lightweight.npy
+576,sick,embeddings_output/lightweight/embeddings_lightweight.npy
+577,"[""cure'.]",embeddings_output/lightweight/embeddings_lightweight.npy
+578,After Carmen had,embeddings_output/lightweight/embeddings_lightweight.npy
+579,been in the village for about,embeddings_output/lightweight/embeddings_lightweight.npy
+580,"a week, a",embeddings_output/lightweight/embeddings_lightweight.npy
+581,patient came to the clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+582,with a bad fever.,embeddings_output/lightweight/embeddings_lightweight.npy
+583,The patient was an older,embeddings_output/lightweight/embeddings_lightweight.npy
+584,woman named,embeddings_output/lightweight/embeddings_lightweight.npy
+585,Maria,embeddings_output/lightweight/embeddings_lightweight.npy
+586,whom Carmen did not recognize,embeddings_output/lightweight/embeddings_lightweight.npy
+587,according to,embeddings_output/lightweight/embeddings_lightweight.npy
+588,"Alba, Maria",embeddings_output/lightweight/embeddings_lightweight.npy
+589,had come from another,embeddings_output/lightweight/embeddings_lightweight.npy
+590,village down the river.,embeddings_output/lightweight/embeddings_lightweight.npy
+591,Carmen gave her medication,embeddings_output/lightweight/embeddings_lightweight.npy
+592,and,embeddings_output/lightweight/embeddings_lightweight.npy
+593,had her drink plenty,embeddings_output/lightweight/embeddings_lightweight.npy
+594,"of water, but Maria",embeddings_output/lightweight/embeddings_lightweight.npy
+595,fever just,embeddings_output/lightweight/embeddings_lightweight.npy
+596,got worse.,embeddings_output/lightweight/embeddings_lightweight.npy
+597,She also,embeddings_output/lightweight/embeddings_lightweight.npy
+598,had a strange rash,embeddings_output/lightweight/embeddings_lightweight.npy
+599,across her chest,embeddings_output/lightweight/embeddings_lightweight.npy
+600,"and back,",embeddings_output/lightweight/embeddings_lightweight.npy
+601,like nothing Carmen had,embeddings_output/lightweight/embeddings_lightweight.npy
+602,ever seen.,embeddings_output/lightweight/embeddings_lightweight.npy
+603,Carmen told,embeddings_output/lightweight/embeddings_lightweight.npy
+604,Maria she should,embeddings_output/lightweight/embeddings_lightweight.npy
+605,stay in the clinic overnight,embeddings_output/lightweight/embeddings_lightweight.npy
+606,until she felt,embeddings_output/lightweight/embeddings_lightweight.npy
+607,better.,embeddings_output/lightweight/embeddings_lightweight.npy
+608,That,embeddings_output/lightweight/embeddings_lightweight.npy
+609,"evening, Juan",embeddings_output/lightweight/embeddings_lightweight.npy
+610,came to the clinic with,embeddings_output/lightweight/embeddings_lightweight.npy
+611,another man.,embeddings_output/lightweight/embeddings_lightweight.npy
+612,The two men stood,embeddings_output/lightweight/embeddings_lightweight.npy
+613,"in the doorway, not",embeddings_output/lightweight/embeddings_lightweight.npy
+614,"wanting to come any closer,",embeddings_output/lightweight/embeddings_lightweight.npy
+615,as,embeddings_output/lightweight/embeddings_lightweight.npy
+616,if they were afraid Maria,embeddings_output/lightweight/embeddings_lightweight.npy
+617,might be contagious.,embeddings_output/lightweight/embeddings_lightweight.npy
+618,When Carmen noticed,embeddings_output/lightweight/embeddings_lightweight.npy
+619,"they were there,",embeddings_output/lightweight/embeddings_lightweight.npy
+620,she rushed over to,embeddings_output/lightweight/embeddings_lightweight.npy
+621,Juan.,embeddings_output/lightweight/embeddings_lightweight.npy
+622,She wanted to know,embeddings_output/lightweight/embeddings_lightweight.npy
+623,if anyone in the village,embeddings_output/lightweight/embeddings_lightweight.npy
+624,had a fever,embeddings_output/lightweight/embeddings_lightweight.npy
+625,like this before.,embeddings_output/lightweight/embeddings_lightweight.npy
+626,Had Dr. Torreson,embeddings_output/lightweight/embeddings_lightweight.npy
+627,treated any patients,embeddings_output/lightweight/embeddings_lightweight.npy
+628,with this fever?,embeddings_output/lightweight/embeddings_lightweight.npy
+629,"No, Juan said.",embeddings_output/lightweight/embeddings_lightweight.npy
+630,I have never seen,embeddings_output/lightweight/embeddings_lightweight.npy
+631,anything like this.,embeddings_output/lightweight/embeddings_lightweight.npy
+632,But the other,embeddings_output/lightweight/embeddings_lightweight.npy
+633,man had a strange,embeddings_output/lightweight/embeddings_lightweight.npy
+634,expression on his face.,embeddings_output/lightweight/embeddings_lightweight.npy
+635,"Carmen watched them leave,",embeddings_output/lightweight/embeddings_lightweight.npy
+636,puzzled.,embeddings_output/lightweight/embeddings_lightweight.npy
+637,"The following morning,",embeddings_output/lightweight/embeddings_lightweight.npy
+638,Carmen gave,embeddings_output/lightweight/embeddings_lightweight.npy
+639,Maria more medication,embeddings_output/lightweight/embeddings_lightweight.npy
+640,but nothing seemed,embeddings_output/lightweight/embeddings_lightweight.npy
+641,to help.,embeddings_output/lightweight/embeddings_lightweight.npy
+642,When Carmen came,embeddings_output/lightweight/embeddings_lightweight.npy
+643,back from her afternoon,embeddings_output/lightweight/embeddings_lightweight.npy
+644,"break, she",embeddings_output/lightweight/embeddings_lightweight.npy
+645,found that Maria had,embeddings_output/lightweight/embeddings_lightweight.npy
+646,disappeared.,embeddings_output/lightweight/embeddings_lightweight.npy
+647,Concerned.,embeddings_output/lightweight/embeddings_lightweight.npy
+648,she called for Alba.,embeddings_output/lightweight/embeddings_lightweight.npy
+649,Maria?,embeddings_output/lightweight/embeddings_lightweight.npy
+650,She was taken,embeddings_output/lightweight/embeddings_lightweight.npy
+651,"away, Alba said",embeddings_output/lightweight/embeddings_lightweight.npy
+652,in cryptic,embeddings_output/lightweight/embeddings_lightweight.npy
+653,Spanish.,embeddings_output/lightweight/embeddings_lightweight.npy
+654,If Alba knew,embeddings_output/lightweight/embeddings_lightweight.npy
+655,"any more than that, she",embeddings_output/lightweight/embeddings_lightweight.npy
+656,would not say.,embeddings_output/lightweight/embeddings_lightweight.npy
+657,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+658,"was baffled, and a little",embeddings_output/lightweight/embeddings_lightweight.npy
+659,"unsettled,",embeddings_output/lightweight/embeddings_lightweight.npy
+660,but she had no choice,embeddings_output/lightweight/embeddings_lightweight.npy
+661,but to accept it.,embeddings_output/lightweight/embeddings_lightweight.npy
+662,Though,embeddings_output/lightweight/embeddings_lightweight.npy
+663,she was growing more comfortable,embeddings_output/lightweight/embeddings_lightweight.npy
+664,"in her new home,",embeddings_output/lightweight/embeddings_lightweight.npy
+665,certain aspects,embeddings_output/lightweight/embeddings_lightweight.npy
+666,of the culture,embeddings_output/lightweight/embeddings_lightweight.npy
+667,were still quite mysterious,embeddings_output/lightweight/embeddings_lightweight.npy
+668,to her.,embeddings_output/lightweight/embeddings_lightweight.npy
+669,The second week,embeddings_output/lightweight/embeddings_lightweight.npy
+670,"Carmen was there,",embeddings_output/lightweight/embeddings_lightweight.npy
+671,there was a festival in,embeddings_output/lightweight/embeddings_lightweight.npy
+672,the village.,embeddings_output/lightweight/embeddings_lightweight.npy
+673,The men made a huge,embeddings_output/lightweight/embeddings_lightweight.npy
+674,"bonfire,",embeddings_output/lightweight/embeddings_lightweight.npy
+675,and the women cooked,embeddings_output/lightweight/embeddings_lightweight.npy
+676,a delicious feast.,embeddings_output/lightweight/embeddings_lightweight.npy
+677,Some of the villagers,embeddings_output/lightweight/embeddings_lightweight.npy
+678,played traditional,embeddings_output/lightweight/embeddings_lightweight.npy
+679,"music,",embeddings_output/lightweight/embeddings_lightweight.npy
+680,and everyone danced late,embeddings_output/lightweight/embeddings_lightweight.npy
+681,into the night.,embeddings_output/lightweight/embeddings_lightweight.npy
+682,Carmen thoroughly enjoyed,embeddings_output/lightweight/embeddings_lightweight.npy
+683,herself.,embeddings_output/lightweight/embeddings_lightweight.npy
+684,"At a point,",embeddings_output/lightweight/embeddings_lightweight.npy
+685,Juan came,embeddings_output/lightweight/embeddings_lightweight.npy
+686,to sit beside her.,embeddings_output/lightweight/embeddings_lightweight.npy
+687,"You know,",embeddings_output/lightweight/embeddings_lightweight.npy
+688,everyone here is so,embeddings_output/lightweight/embeddings_lightweight.npy
+689,grateful that you came such,embeddings_output/lightweight/embeddings_lightweight.npy
+690,a long way to care,embeddings_output/lightweight/embeddings_lightweight.npy
+691,"for us, he said,",embeddings_output/lightweight/embeddings_lightweight.npy
+692,a look of genuine,embeddings_output/lightweight/embeddings_lightweight.npy
+693,genuine appreciation,embeddings_output/lightweight/embeddings_lightweight.npy
+694,in his eyes.,embeddings_output/lightweight/embeddings_lightweight.npy
+695,I  do not know,embeddings_output/lightweight/embeddings_lightweight.npy
+696,what we do without you,embeddings_output/lightweight/embeddings_lightweight.npy
+697,here.,embeddings_output/lightweight/embeddings_lightweight.npy
+698,Carmen smiled,embeddings_output/lightweight/embeddings_lightweight.npy
+699,"back, feeling",embeddings_output/lightweight/embeddings_lightweight.npy
+700,pleased that she had,embeddings_output/lightweight/embeddings_lightweight.npy
+701,taken a chance on this,embeddings_output/lightweight/embeddings_lightweight.npy
+702,adventure.,embeddings_output/lightweight/embeddings_lightweight.npy
+703,"Overall,",embeddings_output/lightweight/embeddings_lightweight.npy
+704,Carmen was happy,embeddings_output/lightweight/embeddings_lightweight.npy
+705,in the Amazon but,embeddings_output/lightweight/embeddings_lightweight.npy
+706,she still felt homesick,embeddings_output/lightweight/embeddings_lightweight.npy
+707,from time to time.,embeddings_output/lightweight/embeddings_lightweight.npy
+708,"One morning,",embeddings_output/lightweight/embeddings_lightweight.npy
+709,she discovered,embeddings_output/lightweight/embeddings_lightweight.npy
+710,that if she hiked to the top,embeddings_output/lightweight/embeddings_lightweight.npy
+711,of a small Hill,embeddings_output/lightweight/embeddings_lightweight.npy
+712,"behind her hut,",embeddings_output/lightweight/embeddings_lightweight.npy
+713,her cell phone picked,embeddings_output/lightweight/embeddings_lightweight.npy
+714,up a weak signal.,embeddings_output/lightweight/embeddings_lightweight.npy
+715,"She called Linda,",embeddings_output/lightweight/embeddings_lightweight.npy
+716,a close friend at home.,embeddings_output/lightweight/embeddings_lightweight.npy
+717,To,embeddings_output/lightweight/embeddings_lightweight.npy
+718,"Carmen delight,",embeddings_output/lightweight/embeddings_lightweight.npy
+719,"Linda picked up,",embeddings_output/lightweight/embeddings_lightweight.npy
+720,and the two women,embeddings_output/lightweight/embeddings_lightweight.npy
+721,talked for a long time.,embeddings_output/lightweight/embeddings_lightweight.npy
+722,Carmen told Linda,embeddings_output/lightweight/embeddings_lightweight.npy
+723,"all about the Amazon,",embeddings_output/lightweight/embeddings_lightweight.npy
+724,even mentioning,embeddings_output/lightweight/embeddings_lightweight.npy
+725,the patient with the strange,embeddings_output/lightweight/embeddings_lightweight.npy
+726,fever.,embeddings_output/lightweight/embeddings_lightweight.npy
+727,After,embeddings_output/lightweight/embeddings_lightweight.npy
+728,"they hung up,",embeddings_output/lightweight/embeddings_lightweight.npy
+729,Carmen headed back,embeddings_output/lightweight/embeddings_lightweight.npy
+730,"down the Hill, comforted",embeddings_output/lightweight/embeddings_lightweight.npy
+731,comforted by the conversation.,embeddings_output/lightweight/embeddings_lightweight.npy
+732,As she was settling,embeddings_output/lightweight/embeddings_lightweight.npy
+733,in for an afternoon,embeddings_output/lightweight/embeddings_lightweight.npy
+734,"siesta, there",embeddings_output/lightweight/embeddings_lightweight.npy
+735,was a knock at the door,embeddings_output/lightweight/embeddings_lightweight.npy
+736,of her hut.,embeddings_output/lightweight/embeddings_lightweight.npy
+737,Come in!,embeddings_output/lightweight/embeddings_lightweight.npy
+738,"she called, surprised.",embeddings_output/lightweight/embeddings_lightweight.npy
+739,The,embeddings_output/lightweight/embeddings_lightweight.npy
+740,door swung open,embeddings_output/lightweight/embeddings_lightweight.npy
+741,and Juan burst inside.,embeddings_output/lightweight/embeddings_lightweight.npy
+742,Dr. Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+743,I'm sorry to bother,embeddings_output/lightweight/embeddings_lightweight.npy
+744,"you like this, but there is",embeddings_output/lightweight/embeddings_lightweight.npy
+745,"an emergency, he said.",embeddings_output/lightweight/embeddings_lightweight.npy
+746,Some,embeddings_output/lightweight/embeddings_lightweight.npy
+747,of my men have seen,embeddings_output/lightweight/embeddings_lightweight.npy
+748,loggers working,embeddings_output/lightweight/embeddings_lightweight.npy
+749,in a part of the rainforest,embeddings_output/lightweight/embeddings_lightweight.npy
+750,that is strictly,embeddings_output/lightweight/embeddings_lightweight.npy
+751,off limits.,embeddings_output/lightweight/embeddings_lightweight.npy
+752,We must contact,embeddings_output/lightweight/embeddings_lightweight.npy
+753,the authorities to stop,embeddings_output/lightweight/embeddings_lightweight.npy
+754,"them right away, but",embeddings_output/lightweight/embeddings_lightweight.npy
+755,our satellite phone is,embeddings_output/lightweight/embeddings_lightweight.npy
+756,not working. I,embeddings_output/lightweight/embeddings_lightweight.npy
+757,need to take your cell,embeddings_output/lightweight/embeddings_lightweight.npy
+758,phone.,embeddings_output/lightweight/embeddings_lightweight.npy
+759,"Of course,",embeddings_output/lightweight/embeddings_lightweight.npy
+760,"she said, flustered,",embeddings_output/lightweight/embeddings_lightweight.npy
+761,handing,embeddings_output/lightweight/embeddings_lightweight.npy
+762,over her cell phone,embeddings_output/lightweight/embeddings_lightweight.npy
+763,it's solar,embeddings_output/lightweight/embeddings_lightweight.npy
+764,powered charger.,embeddings_output/lightweight/embeddings_lightweight.npy
+765,Thank you. We,embeddings_output/lightweight/embeddings_lightweight.npy
+766,may need to keep it for,embeddings_output/lightweight/embeddings_lightweight.npy
+767,"a few days, so",embeddings_output/lightweight/embeddings_lightweight.npy
+768,that we can monitor,embeddings_output/lightweight/embeddings_lightweight.npy
+769,these criminals and,embeddings_output/lightweight/embeddings_lightweight.npy
+770,continue to report,embeddings_output/lightweight/embeddings_lightweight.npy
+771,"where they are, Juan",embeddings_output/lightweight/embeddings_lightweight.npy
+772,said.,embeddings_output/lightweight/embeddings_lightweight.npy
+773,"Take your time,",embeddings_output/lightweight/embeddings_lightweight.npy
+774,Carmen started,embeddings_output/lightweight/embeddings_lightweight.npy
+775,"to say, but Juan was",embeddings_output/lightweight/embeddings_lightweight.npy
+776,already gone.,embeddings_output/lightweight/embeddings_lightweight.npy
+777,"The next day,",embeddings_output/lightweight/embeddings_lightweight.npy
+778,a second patient,embeddings_output/lightweight/embeddings_lightweight.npy
+779,with the strange,embeddings_output/lightweight/embeddings_lightweight.npy
+780,fever came to,embeddings_output/lightweight/embeddings_lightweight.npy
+781,see Carmen in the clinic.,embeddings_output/lightweight/embeddings_lightweight.npy
+782,This time it,embeddings_output/lightweight/embeddings_lightweight.npy
+783,was a young man that she,embeddings_output/lightweight/embeddings_lightweight.npy
+784,recognized from the village.,embeddings_output/lightweight/embeddings_lightweight.npy
+785,Along with the,embeddings_output/lightweight/embeddings_lightweight.npy
+786,"rash, this patient",embeddings_output/lightweight/embeddings_lightweight.npy
+787,"had a nasty,",embeddings_output/lightweight/embeddings_lightweight.npy
+788,hacking cough.,embeddings_output/lightweight/embeddings_lightweight.npy
+789,He,embeddings_output/lightweight/embeddings_lightweight.npy
+790,slept on one of the beds,embeddings_output/lightweight/embeddings_lightweight.npy
+791,"in the clinic,",embeddings_output/lightweight/embeddings_lightweight.npy
+792,groaning and thrashing,embeddings_output/lightweight/embeddings_lightweight.npy
+793,in what seemed,embeddings_output/lightweight/embeddings_lightweight.npy
+794,to be nightmares.,embeddings_output/lightweight/embeddings_lightweight.npy
+795,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+796,stayed with him late,embeddings_output/lightweight/embeddings_lightweight.npy
+797,"into the evening,",embeddings_output/lightweight/embeddings_lightweight.npy
+798,then went to her,embeddings_output/lightweight/embeddings_lightweight.npy
+799,hut for a couple hours,embeddings_output/lightweight/embeddings_lightweight.npy
+800,rest.,embeddings_output/lightweight/embeddings_lightweight.npy
+801,"At Dawn,",embeddings_output/lightweight/embeddings_lightweight.npy
+802,she returned to the clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+803,to find that,embeddings_output/lightweight/embeddings_lightweight.npy
+804,he  had not made it through the,embeddings_output/lightweight/embeddings_lightweight.npy
+805,night.,embeddings_output/lightweight/embeddings_lightweight.npy
+806,Traumatized and,embeddings_output/lightweight/embeddings_lightweight.npy
+807,"brokenhearted,",embeddings_output/lightweight/embeddings_lightweight.npy
+808,Carmen ran to,embeddings_output/lightweight/embeddings_lightweight.npy
+809,find his family.,embeddings_output/lightweight/embeddings_lightweight.npy
+810,Four of the men from,embeddings_output/lightweight/embeddings_lightweight.npy
+811,the village carried his,embeddings_output/lightweight/embeddings_lightweight.npy
+812,body away.,embeddings_output/lightweight/embeddings_lightweight.npy
+813,Even though she knew,embeddings_output/lightweight/embeddings_lightweight.npy
+814,"it was not her fault,",embeddings_output/lightweight/embeddings_lightweight.npy
+815,that she had done,embeddings_output/lightweight/embeddings_lightweight.npy
+816,"the best she could,",embeddings_output/lightweight/embeddings_lightweight.npy
+817,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+818,felt horribly guilty,embeddings_output/lightweight/embeddings_lightweight.npy
+819,over the young  mans death.,embeddings_output/lightweight/embeddings_lightweight.npy
+820,"Just a few days later,",embeddings_output/lightweight/embeddings_lightweight.npy
+821,Carmen saw,embeddings_output/lightweight/embeddings_lightweight.npy
+822,her third patient,embeddings_output/lightweight/embeddings_lightweight.npy
+823,with a strange fever.,embeddings_output/lightweight/embeddings_lightweight.npy
+824,She,embeddings_output/lightweight/embeddings_lightweight.npy
+825,recognized the man,embeddings_output/lightweight/embeddings_lightweight.npy
+826,"as Ramiro,",embeddings_output/lightweight/embeddings_lightweight.npy
+827,a village leader,embeddings_output/lightweight/embeddings_lightweight.npy
+828,and one of  Juan close,embeddings_output/lightweight/embeddings_lightweight.npy
+829,friends.,embeddings_output/lightweight/embeddings_lightweight.npy
+830,"Luckily,",embeddings_output/lightweight/embeddings_lightweight.npy
+831,Ramiro  did not seem,embeddings_output/lightweight/embeddings_lightweight.npy
+832,to be as far,embeddings_output/lightweight/embeddings_lightweight.npy
+833,along in the illness as,embeddings_output/lightweight/embeddings_lightweight.npy
+834,the other patients,embeddings_output/lightweight/embeddings_lightweight.npy
+835,she had seen.,embeddings_output/lightweight/embeddings_lightweight.npy
+836,His forehead,embeddings_output/lightweight/embeddings_lightweight.npy
+837,"was warm,",embeddings_output/lightweight/embeddings_lightweight.npy
+838,but he  did not yet have,embeddings_output/lightweight/embeddings_lightweight.npy
+839,the rash or hacking,embeddings_output/lightweight/embeddings_lightweight.npy
+840,cough.,embeddings_output/lightweight/embeddings_lightweight.npy
+841,Carmen began,embeddings_output/lightweight/embeddings_lightweight.npy
+842,"treating him with medication,",embeddings_output/lightweight/embeddings_lightweight.npy
+843,lots of,embeddings_output/lightweight/embeddings_lightweight.npy
+844,"water, and some",embeddings_output/lightweight/embeddings_lightweight.npy
+845,medicinal plants that,embeddings_output/lightweight/embeddings_lightweight.npy
+846,Alba had brought her.,embeddings_output/lightweight/embeddings_lightweight.npy
+847,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+848,tended to Ramiro,embeddings_output/lightweight/embeddings_lightweight.npy
+849,round the clock,embeddings_output/lightweight/embeddings_lightweight.npy
+850,for two days.,embeddings_output/lightweight/embeddings_lightweight.npy
+851,Finally his fever,embeddings_output/lightweight/embeddings_lightweight.npy
+852,went down.,embeddings_output/lightweight/embeddings_lightweight.npy
+853,On the day Ramiro,embeddings_output/lightweight/embeddings_lightweight.npy
+854,was released from,embeddings_output/lightweight/embeddings_lightweight.npy
+855,"the clinic,",embeddings_output/lightweight/embeddings_lightweight.npy
+856,his entire family,embeddings_output/lightweight/embeddings_lightweight.npy
+857,"came to show their gratitude,",embeddings_output/lightweight/embeddings_lightweight.npy
+858,showering,embeddings_output/lightweight/embeddings_lightweight.npy
+859,Carmen with gifts.,embeddings_output/lightweight/embeddings_lightweight.npy
+860,She was embarrassed,embeddings_output/lightweight/embeddings_lightweight.npy
+861,"at the attention,",embeddings_output/lightweight/embeddings_lightweight.npy
+862,but also,embeddings_output/lightweight/embeddings_lightweight.npy
+863,thrilled and proud,embeddings_output/lightweight/embeddings_lightweight.npy
+864,to have cured the man.,embeddings_output/lightweight/embeddings_lightweight.npy
+865,These were the moments that,embeddings_output/lightweight/embeddings_lightweight.npy
+866,reminded her why she,embeddings_output/lightweight/embeddings_lightweight.npy
+867,had become a doctor,embeddings_output/lightweight/embeddings_lightweight.npy
+868,in the first place.,embeddings_output/lightweight/embeddings_lightweight.npy
+869,When,embeddings_output/lightweight/embeddings_lightweight.npy
+870,Juan himself came,embeddings_output/lightweight/embeddings_lightweight.npy
+871,to personally thank,embeddings_output/lightweight/embeddings_lightweight.npy
+872,her for curing his,embeddings_output/lightweight/embeddings_lightweight.npy
+873,"friend, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+874,thought she noticed,embeddings_output/lightweight/embeddings_lightweight.npy
+875,tears in his eyes.,embeddings_output/lightweight/embeddings_lightweight.npy
+876,"Here, we would",embeddings_output/lightweight/embeddings_lightweight.npy
+877,"like you to have this,",embeddings_output/lightweight/embeddings_lightweight.npy
+878,Juan said,embeddings_output/lightweight/embeddings_lightweight.npy
+879,handing her a,embeddings_output/lightweight/embeddings_lightweight.npy
+880,small package wrapped,embeddings_output/lightweight/embeddings_lightweight.npy
+881,in leaves and twine.,embeddings_output/lightweight/embeddings_lightweight.npy
+882,Carmen opened,embeddings_output/lightweight/embeddings_lightweight.npy
+883,it carefully.,embeddings_output/lightweight/embeddings_lightweight.npy
+884,Inside,embeddings_output/lightweight/embeddings_lightweight.npy
+885,was a delicate,embeddings_output/lightweight/embeddings_lightweight.npy
+886,handmade necklace.,embeddings_output/lightweight/embeddings_lightweight.npy
+887,"It was beautiful,",embeddings_output/lightweight/embeddings_lightweight.npy
+888,and Carmen was touched.,embeddings_output/lightweight/embeddings_lightweight.npy
+889,She felt she had truly,embeddings_output/lightweight/embeddings_lightweight.npy
+890,become part of her new,embeddings_output/lightweight/embeddings_lightweight.npy
+891,community.,embeddings_output/lightweight/embeddings_lightweight.npy
+892,Another week went by.,embeddings_output/lightweight/embeddings_lightweight.npy
+893,Carmen noticed a,embeddings_output/lightweight/embeddings_lightweight.npy
+894,change in the weather,embeddings_output/lightweight/embeddings_lightweight.npy
+895,weather: The,embeddings_output/lightweight/embeddings_lightweight.npy
+896,"sky was overcast,",embeddings_output/lightweight/embeddings_lightweight.npy
+897,and the air was,embeddings_output/lightweight/embeddings_lightweight.npy
+898,even more humid,embeddings_output/lightweight/embeddings_lightweight.npy
+899,now.,embeddings_output/lightweight/embeddings_lightweight.npy
+900,According,embeddings_output/lightweight/embeddings_lightweight.npy
+901,"to Alba,",embeddings_output/lightweight/embeddings_lightweight.npy
+902,it was the start of the,embeddings_output/lightweight/embeddings_lightweight.npy
+903,rainy season.,embeddings_output/lightweight/embeddings_lightweight.npy
+904,But Carmen  did not,embeddings_output/lightweight/embeddings_lightweight.npy
+905,mind.,embeddings_output/lightweight/embeddings_lightweight.npy
+906,She was enjoying,embeddings_output/lightweight/embeddings_lightweight.npy
+907,the time spent with,embeddings_output/lightweight/embeddings_lightweight.npy
+908,Alba more and more.,embeddings_output/lightweight/embeddings_lightweight.npy
+909,She had even begun,embeddings_output/lightweight/embeddings_lightweight.npy
+910,teaching the girl to,embeddings_output/lightweight/embeddings_lightweight.npy
+911,to read.,embeddings_output/lightweight/embeddings_lightweight.npy
+912,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+913,thought that if she,embeddings_output/lightweight/embeddings_lightweight.npy
+914,"ever had a daughter,",embeddings_output/lightweight/embeddings_lightweight.npy
+915,she'd like her to be,embeddings_output/lightweight/embeddings_lightweight.npy
+916,like Alba.,embeddings_output/lightweight/embeddings_lightweight.npy
+917,Carmen felt frustrated,embeddings_output/lightweight/embeddings_lightweight.npy
+918,that she,embeddings_output/lightweight/embeddings_lightweight.npy
+919,she was unable to do more,embeddings_output/lightweight/embeddings_lightweight.npy
+920,for the victims,embeddings_output/lightweight/embeddings_lightweight.npy
+921,of this fever.,embeddings_output/lightweight/embeddings_lightweight.npy
+922,So far one of her,embeddings_output/lightweight/embeddings_lightweight.npy
+923,"patients had recovered,",embeddings_output/lightweight/embeddings_lightweight.npy
+924,but one,embeddings_output/lightweight/embeddings_lightweight.npy
+925,"had died, and it was",embeddings_output/lightweight/embeddings_lightweight.npy
+926,impossible to know,embeddings_output/lightweight/embeddings_lightweight.npy
+927,what had happened to Maria.,embeddings_output/lightweight/embeddings_lightweight.npy
+928,She wrapped her brain,embeddings_output/lightweight/embeddings_lightweight.npy
+929,for medicines that might,embeddings_output/lightweight/embeddings_lightweight.npy
+930,"help,",embeddings_output/lightweight/embeddings_lightweight.npy
+931,and wrote out a list,embeddings_output/lightweight/embeddings_lightweight.npy
+932,to give to Juan.,embeddings_output/lightweight/embeddings_lightweight.npy
+933,He still had,embeddings_output/lightweight/embeddings_lightweight.npy
+934,not returned her cell,embeddings_output/lightweight/embeddings_lightweight.npy
+935,"phone but, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+936,did not want to pressure him.,embeddings_output/lightweight/embeddings_lightweight.npy
+937,The,embeddings_output/lightweight/embeddings_lightweight.npy
+938,following morning on,embeddings_output/lightweight/embeddings_lightweight.npy
+939,"her walk to the clinic,",embeddings_output/lightweight/embeddings_lightweight.npy
+940,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+941,spotted Juan in the center,embeddings_output/lightweight/embeddings_lightweight.npy
+942,"of the village,",embeddings_output/lightweight/embeddings_lightweight.npy
+943,conversing with his,embeddings_output/lightweight/embeddings_lightweight.npy
+944,group of leaders.,embeddings_output/lightweight/embeddings_lightweight.npy
+945,As,embeddings_output/lightweight/embeddings_lightweight.npy
+946,"she walked over to them,",embeddings_output/lightweight/embeddings_lightweight.npy
+947,the men suddenly,embeddings_output/lightweight/embeddings_lightweight.npy
+948,"stopped talking,",embeddings_output/lightweight/embeddings_lightweight.npy
+949,giving Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+950,the feeling that,embeddings_output/lightweight/embeddings_lightweight.npy
+951,she had interrupted,embeddings_output/lightweight/embeddings_lightweight.npy
+952,something important.,embeddings_output/lightweight/embeddings_lightweight.npy
+953,When Carmen gave,embeddings_output/lightweight/embeddings_lightweight.npy
+954,Juan her list,embeddings_output/lightweight/embeddings_lightweight.npy
+955,"of medicines,",embeddings_output/lightweight/embeddings_lightweight.npy
+956,he told her  he had put,embeddings_output/lightweight/embeddings_lightweight.npy
+957,in the order right,embeddings_output/lightweight/embeddings_lightweight.npy
+958,away.,embeddings_output/lightweight/embeddings_lightweight.npy
+959,But then Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+960,remembered,embeddings_output/lightweight/embeddings_lightweight.npy
+961,that replacement shipment,embeddings_output/lightweight/embeddings_lightweight.npy
+962,Juan promised,embeddings_output/lightweight/embeddings_lightweight.npy
+963,had never arrived.,embeddings_output/lightweight/embeddings_lightweight.npy
+964,That,embeddings_output/lightweight/embeddings_lightweight.npy
+965,"night in her hut,",embeddings_output/lightweight/embeddings_lightweight.npy
+966,Carmen continued,embeddings_output/lightweight/embeddings_lightweight.npy
+967,to turn things,embeddings_output/lightweight/embeddings_lightweight.npy
+968,over in her mind.,embeddings_output/lightweight/embeddings_lightweight.npy
+969,What if this was an,embeddings_output/lightweight/embeddings_lightweight.npy
+970,unknown disease?,embeddings_output/lightweight/embeddings_lightweight.npy
+971,It  did not seem like,embeddings_output/lightweight/embeddings_lightweight.npy
+972,any of the tropical fevers,embeddings_output/lightweight/embeddings_lightweight.npy
+973,she was familiar,embeddings_output/lightweight/embeddings_lightweight.npy
+974,with.,embeddings_output/lightweight/embeddings_lightweight.npy
+975,"At times,",embeddings_output/lightweight/embeddings_lightweight.npy
+976,Carmen felt,embeddings_output/lightweight/embeddings_lightweight.npy
+977,like there was something,embeddings_output/lightweight/embeddings_lightweight.npy
+978,the villagers  were not telling,embeddings_output/lightweight/embeddings_lightweight.npy
+979,her.,embeddings_output/lightweight/embeddings_lightweight.npy
+980,Did they,embeddings_output/lightweight/embeddings_lightweight.npy
+981,know more about the disease,embeddings_output/lightweight/embeddings_lightweight.npy
+982,than they were letting,embeddings_output/lightweight/embeddings_lightweight.npy
+983,on?,embeddings_output/lightweight/embeddings_lightweight.npy
+984,Did they think,embeddings_output/lightweight/embeddings_lightweight.npy
+985,that having a foreigner,embeddings_output/lightweight/embeddings_lightweight.npy
+986,come and see what was,embeddings_output/lightweight/embeddings_lightweight.npy
+987,happening,embeddings_output/lightweight/embeddings_lightweight.npy
+988,or maybe even get sick,embeddings_output/lightweight/embeddings_lightweight.npy
+989,herself-,embeddings_output/lightweight/embeddings_lightweight.npy
+990,was the only way to get medical,embeddings_output/lightweight/embeddings_lightweight.npy
+991,help?,embeddings_output/lightweight/embeddings_lightweight.npy
+992,But Carmen quickly put,embeddings_output/lightweight/embeddings_lightweight.npy
+993,the idea out of her,embeddings_output/lightweight/embeddings_lightweight.npy
+994,head ashamed,embeddings_output/lightweight/embeddings_lightweight.npy
+995,at herself for,embeddings_output/lightweight/embeddings_lightweight.npy
+996,being so distrustful.,embeddings_output/lightweight/embeddings_lightweight.npy
+997,Juan and the villagers,embeddings_output/lightweight/embeddings_lightweight.npy
+998,had been so welcoming.,embeddings_output/lightweight/embeddings_lightweight.npy
+999,There was no reason,embeddings_output/lightweight/embeddings_lightweight.npy
+1000,to think that they had,embeddings_output/lightweight/embeddings_lightweight.npy
+1001,known about the fever,embeddings_output/lightweight/embeddings_lightweight.npy
+1002,"before she came,",embeddings_output/lightweight/embeddings_lightweight.npy
+1003,"and besides,",embeddings_output/lightweight/embeddings_lightweight.npy
+1004,Dr. Torreson,embeddings_output/lightweight/embeddings_lightweight.npy
+1005,had not mentioned,embeddings_output/lightweight/embeddings_lightweight.npy
+1006,anything about it in,embeddings_output/lightweight/embeddings_lightweight.npy
+1007,his email.,embeddings_output/lightweight/embeddings_lightweight.npy
+1008,Lost,embeddings_output/lightweight/embeddings_lightweight.npy
+1009,"in her thoughts,",embeddings_output/lightweight/embeddings_lightweight.npy
+1010,Carmen suddenly,embeddings_output/lightweight/embeddings_lightweight.npy
+1011,realized that Alba,embeddings_output/lightweight/embeddings_lightweight.npy
+1012,had not come by that,embeddings_output/lightweight/embeddings_lightweight.npy
+1013,evening.,embeddings_output/lightweight/embeddings_lightweight.npy
+1014,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1015,reasoned that the girl,embeddings_output/lightweight/embeddings_lightweight.npy
+1016,was probably helping,embeddings_output/lightweight/embeddings_lightweight.npy
+1017,her family prepare for,embeddings_output/lightweight/embeddings_lightweight.npy
+1018,"the rainy season,",embeddings_output/lightweight/embeddings_lightweight.npy
+1019,although she,embeddings_output/lightweight/embeddings_lightweight.npy
+1020,missed her company.,embeddings_output/lightweight/embeddings_lightweight.npy
+1021,Alma,embeddings_output/lightweight/embeddings_lightweight.npy
+1022,did not come by the next,embeddings_output/lightweight/embeddings_lightweight.npy
+1023,"morning at breakfast,",embeddings_output/lightweight/embeddings_lightweight.npy
+1024,either.,embeddings_output/lightweight/embeddings_lightweight.npy
+1025,Carmen spent,embeddings_output/lightweight/embeddings_lightweight.npy
+1026,the day in the clinic,embeddings_output/lightweight/embeddings_lightweight.npy
+1027,and returned home,embeddings_output/lightweight/embeddings_lightweight.npy
+1028,in the evening to wait for,embeddings_output/lightweight/embeddings_lightweight.npy
+1029,the girl.,embeddings_output/lightweight/embeddings_lightweight.npy
+1030,Hours passed,embeddings_output/lightweight/embeddings_lightweight.npy
+1031,with no signs of Alba.,embeddings_output/lightweight/embeddings_lightweight.npy
+1032,"Worried and lonely,",embeddings_output/lightweight/embeddings_lightweight.npy
+1033,Carmen decided,embeddings_output/lightweight/embeddings_lightweight.npy
+1034,to go check on her.,embeddings_output/lightweight/embeddings_lightweight.npy
+1035,Carmen had never,embeddings_output/lightweight/embeddings_lightweight.npy
+1036,been inside Alba's,embeddings_output/lightweight/embeddings_lightweight.npy
+1037,"family's hut,",embeddings_output/lightweight/embeddings_lightweight.npy
+1038,though she knew which,embeddings_output/lightweight/embeddings_lightweight.npy
+1039,one it was.,embeddings_output/lightweight/embeddings_lightweight.npy
+1040,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1041,crossed the clearing,embeddings_output/lightweight/embeddings_lightweight.npy
+1042,"carefully,",embeddings_output/lightweight/embeddings_lightweight.npy
+1043,avoiding the slippery,embeddings_output/lightweight/embeddings_lightweight.npy
+1044,patches of mud,embeddings_output/lightweight/embeddings_lightweight.npy
+1045,left by the rain.,embeddings_output/lightweight/embeddings_lightweight.npy
+1046,She knocked,embeddings_output/lightweight/embeddings_lightweight.npy
+1047,"once,",embeddings_output/lightweight/embeddings_lightweight.npy
+1048,"twice,",embeddings_output/lightweight/embeddings_lightweight.npy
+1049,"three times,",embeddings_output/lightweight/embeddings_lightweight.npy
+1050,no answer.,embeddings_output/lightweight/embeddings_lightweight.npy
+1051,Not wanting,embeddings_output/lightweight/embeddings_lightweight.npy
+1052,to invade the  family's,embeddings_output/lightweight/embeddings_lightweight.npy
+1053,"privacy,",embeddings_output/lightweight/embeddings_lightweight.npy
+1054,she almost walked,embeddings_output/lightweight/embeddings_lightweight.npy
+1055,away.,embeddings_output/lightweight/embeddings_lightweight.npy
+1056,But concern and,embeddings_output/lightweight/embeddings_lightweight.npy
+1057,curiosity got,embeddings_output/lightweight/embeddings_lightweight.npy
+1058,"the better of her,",embeddings_output/lightweight/embeddings_lightweight.npy
+1059,and she pushed open,embeddings_output/lightweight/embeddings_lightweight.npy
+1060,the door.,embeddings_output/lightweight/embeddings_lightweight.npy
+1061,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1062,was horrified,embeddings_output/lightweight/embeddings_lightweight.npy
+1063,by what she saw inside.,embeddings_output/lightweight/embeddings_lightweight.npy
+1064,"Alba lay on the ground,",embeddings_output/lightweight/embeddings_lightweight.npy
+1065,coughing and,embeddings_output/lightweight/embeddings_lightweight.npy
+1066,flailing.,embeddings_output/lightweight/embeddings_lightweight.npy
+1067,A woman and,embeddings_output/lightweight/embeddings_lightweight.npy
+1068,a man were bent,embeddings_output/lightweight/embeddings_lightweight.npy
+1069,"over her, trying",embeddings_output/lightweight/embeddings_lightweight.npy
+1070,to get her to drink.,embeddings_output/lightweight/embeddings_lightweight.npy
+1071,Alba's,embeddings_output/lightweight/embeddings_lightweight.npy
+1072,"shirt was off,",embeddings_output/lightweight/embeddings_lightweight.npy
+1073,and by the light of,embeddings_output/lightweight/embeddings_lightweight.npy
+1074,"the fire, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+1075,could see the telltale,embeddings_output/lightweight/embeddings_lightweight.npy
+1076,rash across,embeddings_output/lightweight/embeddings_lightweight.npy
+1077,her chest.,embeddings_output/lightweight/embeddings_lightweight.npy
+1078,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1079,"gasped, and",embeddings_output/lightweight/embeddings_lightweight.npy
+1080,the man looked up at her.,embeddings_output/lightweight/embeddings_lightweight.npy
+1081,She was shocked to see,embeddings_output/lightweight/embeddings_lightweight.npy
+1082,"that it was Juan,",embeddings_output/lightweight/embeddings_lightweight.npy
+1083,and his eyes,embeddings_output/lightweight/embeddings_lightweight.npy
+1084,were filled with tears.,embeddings_output/lightweight/embeddings_lightweight.npy
+1085,Alba,embeddings_output/lightweight/embeddings_lightweight.npy
+1086,Alba,embeddings_output/lightweight/embeddings_lightweight.npy
+1087,is your,embeddings_output/lightweight/embeddings_lightweight.npy
+1088,daughter? Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1089,said in shock.,embeddings_output/lightweight/embeddings_lightweight.npy
+1090,How could she not have,embeddings_output/lightweight/embeddings_lightweight.npy
+1091,known?,embeddings_output/lightweight/embeddings_lightweight.npy
+1092,"Juan nodded,",embeddings_output/lightweight/embeddings_lightweight.npy
+1093,a desperate look in his,embeddings_output/lightweight/embeddings_lightweight.npy
+1094,eyes.,embeddings_output/lightweight/embeddings_lightweight.npy
+1095,"I'll be right back, she",embeddings_output/lightweight/embeddings_lightweight.npy
+1096,"said, intending",embeddings_output/lightweight/embeddings_lightweight.npy
+1097,to sprint to the,embeddings_output/lightweight/embeddings_lightweight.npy
+1098,clinic to retrieve,embeddings_output/lightweight/embeddings_lightweight.npy
+1099,the last of her anti,embeddings_output/lightweight/embeddings_lightweight.npy
+1100,fever medication.,embeddings_output/lightweight/embeddings_lightweight.npy
+1101,As she turned,embeddings_output/lightweight/embeddings_lightweight.npy
+1102,"to leave, she",embeddings_output/lightweight/embeddings_lightweight.npy
+1103,saw her cell phone sitting,embeddings_output/lightweight/embeddings_lightweight.npy
+1104,on a table near,embeddings_output/lightweight/embeddings_lightweight.npy
+1105,"the door,",embeddings_output/lightweight/embeddings_lightweight.npy
+1106,and grabbed it on instinct.,embeddings_output/lightweight/embeddings_lightweight.npy
+1107,She looked behind,embeddings_output/lightweight/embeddings_lightweight.npy
+1108,her but,embeddings_output/lightweight/embeddings_lightweight.npy
+1109,Juan had already turned,embeddings_output/lightweight/embeddings_lightweight.npy
+1110,his attention back,embeddings_output/lightweight/embeddings_lightweight.npy
+1111,to Alba.,embeddings_output/lightweight/embeddings_lightweight.npy
+1112,Carmen  didn't,embeddings_output/lightweight/embeddings_lightweight.npy
+1113,didn't go straight to the clinic.,embeddings_output/lightweight/embeddings_lightweight.npy
+1114,On,embeddings_output/lightweight/embeddings_lightweight.npy
+1115,"a whim, she",embeddings_output/lightweight/embeddings_lightweight.npy
+1116,took a lantern and set,embeddings_output/lightweight/embeddings_lightweight.npy
+1117,off down the path,embeddings_output/lightweight/embeddings_lightweight.npy
+1118,that led to the river.,embeddings_output/lightweight/embeddings_lightweight.npy
+1119,Arriving,embeddings_output/lightweight/embeddings_lightweight.npy
+1120,at the shore out,embeddings_output/lightweight/embeddings_lightweight.npy
+1121,"of breath, she",embeddings_output/lightweight/embeddings_lightweight.npy
+1122,sat on a rock,embeddings_output/lightweight/embeddings_lightweight.npy
+1123,and stared out at the muddy,embeddings_output/lightweight/embeddings_lightweight.npy
+1124,water.,embeddings_output/lightweight/embeddings_lightweight.npy
+1125,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1126,wildly hoped that,embeddings_output/lightweight/embeddings_lightweight.npy
+1127,"a boat would pass by,",embeddings_output/lightweight/embeddings_lightweight.npy
+1128,but none did.,embeddings_output/lightweight/embeddings_lightweight.npy
+1129,It dawned on her just,embeddings_output/lightweight/embeddings_lightweight.npy
+1130,how isolated,embeddings_output/lightweight/embeddings_lightweight.npy
+1131,she was.,embeddings_output/lightweight/embeddings_lightweight.npy
+1132,How,embeddings_output/lightweight/embeddings_lightweight.npy
+1133,long had Alba been,embeddings_output/lightweight/embeddings_lightweight.npy
+1134,sick?,embeddings_output/lightweight/embeddings_lightweight.npy
+1135,Why  had not she,embeddings_output/lightweight/embeddings_lightweight.npy
+1136,told Carmen?,embeddings_output/lightweight/embeddings_lightweight.npy
+1137,With,embeddings_output/lightweight/embeddings_lightweight.npy
+1138,"a jolt, Carmen",embeddings_output/lightweight/embeddings_lightweight.npy
+1139,thought about  Alba's,embeddings_output/lightweight/embeddings_lightweight.npy
+1140,hands preparing,embeddings_output/lightweight/embeddings_lightweight.npy
+1141,"her breakfast, folding",embeddings_output/lightweight/embeddings_lightweight.npy
+1142,"her clothes,",embeddings_output/lightweight/embeddings_lightweight.npy
+1143,making the bed.,embeddings_output/lightweight/embeddings_lightweight.npy
+1144,Was the fever contagious?,embeddings_output/lightweight/embeddings_lightweight.npy
+1145,What if Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1146,already been infected?,embeddings_output/lightweight/embeddings_lightweight.npy
+1147,Carmen,embeddings_output/lightweight/embeddings_lightweight.npy
+1148,turned the cell phone,embeddings_output/lightweight/embeddings_lightweight.npy
+1149,"over in her hands,",embeddings_output/lightweight/embeddings_lightweight.npy
+1150,trying not,embeddings_output/lightweight/embeddings_lightweight.npy
+1151,to panic.,embeddings_output/lightweight/embeddings_lightweight.npy
+1152,She was completely,embeddings_output/lightweight/embeddings_lightweight.npy
+1153,torn.,embeddings_output/lightweight/embeddings_lightweight.npy
+1154,Part of her,embeddings_output/lightweight/embeddings_lightweight.npy
+1155,felt anxious,embeddings_output/lightweight/embeddings_lightweight.npy
+1156,"and scared,",embeddings_output/lightweight/embeddings_lightweight.npy
+1157,and wanted to leave,embeddings_output/lightweight/embeddings_lightweight.npy
+1158,right away.,embeddings_output/lightweight/embeddings_lightweight.npy
+1159,But another,embeddings_output/lightweight/embeddings_lightweight.npy
+1160,part of her felt,embeddings_output/lightweight/embeddings_lightweight.npy
+1161,wracked with guilt,embeddings_output/lightweight/embeddings_lightweight.npy
+1162,to think about leaving,embeddings_output/lightweight/embeddings_lightweight.npy
+1163,"the villagers,",embeddings_output/lightweight/embeddings_lightweight.npy
+1164,"especially Alba,",embeddings_output/lightweight/embeddings_lightweight.npy
+1165,in this predicament.,embeddings_output/lightweight/embeddings_lightweight.npy
+1166,Carmen pictured,embeddings_output/lightweight/embeddings_lightweight.npy
+1167,"Alba's wide,",embeddings_output/lightweight/embeddings_lightweight.npy
+1168,trusting eyes;,embeddings_output/lightweight/embeddings_lightweight.npy
+1169,if,embeddings_output/lightweight/embeddings_lightweight.npy
+1170,"she left now, the",embeddings_output/lightweight/embeddings_lightweight.npy
+1171,decision would haunt,embeddings_output/lightweight/embeddings_lightweight.npy
+1172,her for long time.,embeddings_output/lightweight/embeddings_lightweight.npy
+1173,"On the other hand,",embeddings_output/lightweight/embeddings_lightweight.npy
+1174,she  wasn't even,embeddings_output/lightweight/embeddings_lightweight.npy
+1175,sure if the disease,embeddings_output/lightweight/embeddings_lightweight.npy
+1176,"could be treated,",embeddings_output/lightweight/embeddings_lightweight.npy
+1177,and she,embeddings_output/lightweight/embeddings_lightweight.npy
+1178,could be risking her life,embeddings_output/lightweight/embeddings_lightweight.npy
+1179,if she stayed.,embeddings_output/lightweight/embeddings_lightweight.npy
+1180,What was,embeddings_output/lightweight/embeddings_lightweight.npy
+1181,she going to do?,embeddings_output/lightweight/embeddings_lightweight.npy

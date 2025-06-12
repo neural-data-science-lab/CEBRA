@@ -1,0 +1,17 @@
+{
+  "model_tier": "lightweight",
+  "model_name": "all-MiniLM-L6-v2",
+  "embedding_dim": 392,
+  "label_features": 8,
+  "num_tokens": 1182,
+  "feature_names": [
+    "characters_value",
+    "characters_confidence",
+    "emotions_value",
+    "emotions_confidence",
+    "location_value",
+    "location_confidence",
+    "time_value",
+    "time_confidence"
+  ]
+}
