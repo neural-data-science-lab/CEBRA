@@ -20,7 +20,6 @@ The main goal is to replicate and extend the  workflow from the Google Colab not
 - [Datasets](#datasets)  
 - [Usage](#usage)  
 - [Installation](#installation)  
-- [Conda Environment Setup](#conda-environment-setup) 
 - [References](#references)  
 - [Contributing](#contributing)  
 - [Contact](#contact)
@@ -45,22 +44,14 @@ This project follows the workflow demonstrated in the  [CEBRA best practices col
  
 - Python 3.10 (managed via conda environment)  
 
-### Create and activate environment
-
-```bash
-conda create -n cebra_venv python=3.10 -c conda-forge
-
-conda activate cebra_venv
-```
-
-## Conda Environment Setup
+### Conda Environment Setup
 
 This project uses **conda** with the `conda-forge` channel to manage packages, as it ensures better compatibility and fewer dependency conflicts compared to `pip`.
 
-### Create the environment
+#### Create the environment
 
 ```bash
-conda create -n cebra_venv python=3.10 -c conda-forge
+conda create -n cebra_venv python=3.9 -c conda-forge
 ```
 
 ### Install dependencies
@@ -68,9 +59,15 @@ conda create -n cebra_venv python=3.10 -c conda-forge
 conda install --file requirements.txt -c conda-forge
 ```
 
+conda install -c conda-forge numpy matplotlib scikit-learn mne
+
 Use pip only if necessary after conda installs.
 
-## References
+conda install -c conda-forge numpy=1.23.5
+
+CEBRA must be installed via pip, as it's currently only published on PyPI
+
+## Referencesy
 ### Primary CEBRA Best Practices Notebook
 - [CEBRA best practices colab notebook](https://colab.research.google.com/github/AdaptiveMotorControlLab/CEBRA-demos/blob/main/CEBRA_best_practices.ipynb#scrollTo=8wexciDCXx79)
 
