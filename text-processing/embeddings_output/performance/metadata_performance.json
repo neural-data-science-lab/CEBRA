@@ -1,0 +1,17 @@
+{
+  "model_tier": "performance",
+  "model_name": "BAAI/bge-large-en-v1.5",
+  "embedding_dim": 1032,
+  "label_features": 8,
+  "num_tokens": 1182,
+  "feature_names": [
+    "characters_value",
+    "characters_confidence",
+    "emotions_value",
+    "emotions_confidence",
+    "location_value",
+    "location_confidence",
+    "time_value",
+    "time_confidence"
+  ]
+}

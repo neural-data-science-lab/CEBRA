@@ -89,10 +89,24 @@ class TokenLabeler:
 **Context After:** {' '.join(context_info['context_after'][:5]) if context_info['context_after'] else '[none]'}
 
 For each category, provide:
-- **value**: The specific semantic label (e.g., "office", "Carmen Reed", "tired", "afternoon") or "null" if not applicable
+- **value**: The specific semantic label (e.g., "office", "Dr. Carmen Reed", "tired", "afternoon") or "null" if not applicable
 - **confidence**: Float between 0.0-1.0 indicating your confidence in the label
 
+Make sure the character you assign is one of the following and no other:
+- Dr. Carmen Reed
+- Dr. John Torreson
+- Antonio
+- Juan Torres
+- Alba
+- Maria
+- Linda
+- Ramiro
+- Boat Driver
+- Alba's Mother
+
+Remember that you are not strictly constrained to one value per label. If you assign multiple values to one category for any given token make sure it is complying with the JSON formating restrictions:
 Consider the context when labeling. If the token doesn't directly contain a category but the context suggests it should be labeled (e.g., pronouns referring to characters, implicit time/location), include those labels.
+Null values should be avoided and only used in scenarios where you a are completely unsure about the label. A value with a low confidence is better than a null value in most cases.
 
 Respond in this exact JSON format:
 {{
@@ -108,7 +122,7 @@ Respond in this exact JSON format:
 
         try:
             response = self.client.messages.create(
-                model="claude-3-haiku-20240307",  # Use Haiku for cost efficiency
+                model="claude-3-5-haiku-latest",  # Use Haiku for cost efficiency
                 max_tokens=300,
                 temperature=0.1,  # Low temperature for consistent formatting
                 messages=[{
@@ -203,6 +217,28 @@ Respond in this exact JSON format:
 
         return results
 
+    def save_raw_results(self, results: List[Dict[str, Any]], output_path: str):
+        """Save raw results without statistics - primary data save"""
+
+        with open(output_path.replace('.json', '_dump.txt'), 'w', encoding='utf-8') as f:
+            f.write(str(results))
+
+        raw_output = {
+            "metadata": {
+                "total_tokens": len(results),
+                "categories": ["location", "characters", "emotions", "time"],
+                "processing_date": datetime.now().isoformat(),
+                "description": "Context-aware semantic token labeling using Anthropic API with probabilistic label generation",
+                "context_window": self.context_window
+            },
+            "tokens": results
+        }
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(raw_output, f, indent=2, ensure_ascii=False)
+
+        print(f"\nRaw results saved to: {output_path}")
+        print(f"Total tokens processed: {len(results)}")
     def generate_statistics(self, results: List[Dict[str, Any]]) -> Dict[str, Any]:
         """Generate statistics from the results"""
         stats = {
@@ -231,30 +267,33 @@ Respond in this exact JSON format:
         return final_stats
 
     def save_results(self, results: List[Dict[str, Any]], output_path: str):
-        """Save results to JSON file"""
-        stats = self.generate_statistics(results)
+        """Save results to JSON file - always saves raw data first"""
+        # ALWAYS save raw results first - this is the primary output
+        self.save_raw_results(results, output_path)
 
-        final_output = {
-            "metadata": {
-                "total_tokens": len(results),
-                "categories": ["location", "characters", "emotions", "time"],
-                "processing_date": datetime.now().isoformat(),
-                "description": "Context-aware semantic token labeling using Anthropic API with probabilistic label generation",
-                "context_window": self.context_window,
-                "statistics": stats
-            },
-            "tokens": results
-        }
+        # Optionally try to generate and add statistics
+        try:
+            print("\nGenerating statistics...")
+            stats = self.generate_statistics(results)
 
-        with open(output_path, 'w', encoding='utf-8') as f:
-            json.dump(final_output, f, indent=2, ensure_ascii=False)
+            # Read the raw file we just saved and add statistics
+            with open(output_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
 
-        print(f"\nResults saved to: {output_path}")
-        print(f"Total tokens processed: {len(results)}")
-        print("\nStatistics:")
-        for category, data in stats.items():
-            percentage = (data['count'] / len(results)) * 100
-            print(f"- {category.capitalize()}: {data['count']} tokens ({percentage:.1f}%), {data['unique_count']} unique values")
+            data["metadata"]["statistics"] = stats
+
+            # Save again with statistics
+            with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2, ensure_ascii=False)
+
+            print("Statistics added to results file.")
+            print("\nStatistics:")
+            for category, data in stats.items():
+                percentage = (data['count'] / len(results)) * 100
+                print(f"- {category.capitalize()}: {data['count']} tokens ({percentage:.1f}%), {data['unique_count']} unique values")
+
+        except Exception as e:
+            print(f"\nNote: Could not generate statistics ({e}), but raw data is safely saved.")
 
 
 def main():
