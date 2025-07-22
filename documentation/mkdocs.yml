@@ -1,0 +1,154 @@
+site_name: "Shared Neural Dynamics: Multi-Session EEG Analysis with CEBRA"
+site_description: "Understanding shared brain states and transitions across subjects using Consistent EmBeddings of high-dimensional Recordings using Auxiliary variables (CEBRA)"
+site_author: "Your Name"
+repo_url: "https://github.com/your-username/multi-session-eeg-cebra"
+repo_name: "multi-session-eeg-cebra"
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: blue
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - search.highlight
+    - search.suggest
+    - search.share
+    - toc.integrate
+    - toc.follow
+    - content.code.annotate
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.details
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Home: 
+    - Overview: index.md
+    - Key Findings: findings.md
+  
+  - Theoretical Background:
+    - Introduction to CEBRA: theory/cebra-introduction.md
+    - CEBRA with EEG data: theory/dimensionality-reduction.md
+    - Neural State Space Analysis: theory/neural-state-space.md
+  
+  - Dataset:
+    - Multi-Subject Design: dataset/multi-subject-design.md
+    - EEG Data Overview: dataset/eeg-overview.md
+  
+  - Methodology:
+    - System Overview: architecture/overview.md
+    - Multisession Dataloading: architecture/data-flow.md
+    - Multisession Model Training: architecture/model-config.md
+    #- Component Interactions: architecture/components.md 
+    #- Batch Processing: implementation/batch-processing.md
+    #- Training Strategy: implementation/training-strategy.md
+    #- Model Optimization: implementation/optimization.md
+    #- Validation Approach: implementation/validation.md
+  
+  - CEBRA Components:
+    - Modifications: components/dataset-collection.md
+    - TensorDataset Design: components/tensor-dataset.md
+    - MultiSessionLoader Logic: components/multi-session-loader.md
+    - Offset Model Architecture: components/offset-model.md
+    - Multi-Session Solver: components/multi-session-solver.md
+  
+  - Results & Analysis:
+    #- Shared Brain States: results/shared-states.md
+    #- State Transitions: results/state-transitions.md
+    - Cross-Subject: results/cross-subject.md
+    #- Temporal Patterns: results/temporal-patterns.md
+  
+  - Biological Interpretation:
+    - Neural Mechanisms: interpretation/neural-mechanisms.md
+    - Cognitive Correlates: interpretation/cognitive-correlates.md
+    - Task-Related Dynamics: interpretation/task-dynamics.md
+    - Individual Differences: interpretation/individual-differences.md
+  
+
+  - Technical Documentation:
+    - Code Structure: technical/code-structure.md
+    - Class Hierarchies: technical/class-hierarchies.md
+    - Data Types: technical/data-types.md
+    - Configuration Options: technical/configuration.md
+    - Environment Setup: reproducibility/environment.md
+    - Data Preparation: reproducibility/data-prep.md
+    - Execution Guide: reproducibility/execution.md
+  
+  - Appendices:
+    - Bibliography: appendices/bibliography.md
+
+# Custom styling for scientific documentation
+copyright: |
+  &copy; 2024 [Your Name]. This work is licensed under a 
+  <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">Creative Commons Attribution 4.0 International License</a>.
+
+# Additional configuration for scientific publishing
+strict: true
+use_directory_urls: true
+
+# Site metadata for academic indexing
+site_url: "https://your-username.github.io/multi-session-eeg-cebra/"
+edit_uri: "edit/main/docs/"
+
+# Custom variables for reuse across documents
+extra:
+  version: "1.0.0"
+  study_name: "Multi-Session EEG CEBRA Analysis"
+  model_type: "offset10-model"
+  solver_type: "multi-session"
+  dataset_type: "Multi-Subject EEG"
+  analysis_focus: "Shared Neural Dynamics"
