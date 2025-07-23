@@ -52,12 +52,21 @@ parietal_channels = ['Pz', 'P3', 'P4']
 data_dict = eeg_dataloader.load_all_subjects(
     data_dir=str(data_dir),
     subjects_to_load=subject_ids_to_load,
-    pick_channels=all_channels)
+    pick_channels=all_channels,
+    t_start=900,  # seconds
+    t_end=1020)
+
+for subj, info in data_dict.items():
+    print(f"Subject: {subj}")
+    print(f"  Sampling Frequency: {info['sfreq']} Hz")
+    print(f"  Total Duration: {info['duration_sec']:.2f} sec")
+    print(f"  Snippet Duration: {info['snippet_duration_sec']:.2f} sec")
 
 # 3. Quick test
 all_data = []
 
 for subject_key, raw in data_dict.items():
+    raw = info["raw"]
     raw.plot(n_channels=30, duration=10, block=True, title=f"EEG: {subject_key}")
     
     # # Bandpass filter (optional but good for state analysis)

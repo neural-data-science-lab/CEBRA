@@ -21,7 +21,6 @@ Last updated: 21.07.2025
 from pathlib import Path
 import mne 
 from typing import Optional, List, Dict
-
 # --------------------------------------------------------------------------------------------
 #  Functions
 # --------------------------------------------------------------------------------------------
@@ -68,36 +67,29 @@ def load_subject(subject_folder: Path, data_type: str = "preproc") -> mne.io.Raw
     return raw
 
 
-from pathlib import Path
-from typing import Optional, List, Dict
-import mne
-
 def load_all_subjects(
     data_dir: str = "data",
     data_type: str = "preproc",
     pick_channels: Optional[List[str]] = None,
-    subjects_to_load: Optional[List[str]] = None
-) -> Dict[str, mne.io.Raw]:
+    subjects_to_load: Optional[List[str]] = None,
+    t_start: Optional[float] = None,
+    t_end: Optional[float] = None
+) -> Dict[str, Dict]:
     """
-    Load EEG data for specified subjects from data_dir using consistent style.
-
-    Args:
-        data_dir (str): Path to data directory containing subject folders.
-        data_type (str): Type of data to load ("preproc" or "rawdata").
-        pick_channels (list, optional): Channels to pick from each raw object.
-        subjects_to_load (list, optional): List of subject IDs to load (e.g., ["sub-001"]).
+    Load EEG data for specified subjects, optionally extracting a snippet and reporting metadata.
 
     Returns:
-        dict: Keys are subject IDs, values are MNE Raw objects.
+        dict: Keys are subject IDs, values are dictionaries with:
+              - 'raw': Raw object
+              - 'sfreq': Sampling frequency
+              - 'duration_sec': Total duration of full data
+              - 'snippet_duration_sec': Duration of the snippet (if used)
     """
     data_dir = Path(data_dir)
     loaded_data = {}
 
-    # Use glob for consistent folder matching
     for subject_folder in sorted(data_dir.glob("sub-*")):
         subject_id = subject_folder.name
-
-        # Filter subjects exactly like in load_subjects
         if subjects_to_load is not None and subject_id not in subjects_to_load:
             continue
 
@@ -105,14 +97,29 @@ def load_all_subjects(
 
         try:
             raw = load_subject(subject_folder, data_type=data_type)
-
+            original_raw = raw.copy()  # Keep full for duration
             if pick_channels is not None:
                 raw.pick(pick_channels)
 
-            loaded_data[subject_id] = raw
+            # Duration of full dataset
+            full_duration = original_raw.times[-1] - original_raw.times[0]
+            sfreq = raw.info['sfreq']
+
+            snippet_duration = None
+            if t_start is not None and t_end is not None:
+                raw = raw.copy().crop(tmin=t_start, tmax=t_end)
+                snippet_duration = raw.times[-1] - raw.times[0]
+
+            loaded_data[subject_id] = {
+                "raw": raw,
+                "sfreq": sfreq,
+                "duration_sec": full_duration,
+                "snippet_duration_sec": snippet_duration if snippet_duration else full_duration
+            }
 
         except Exception as e:
             print(f"[ERROR] Failed to load {subject_id}: {e}")
 
     print(f"[INFO] Total loaded subjects: {len(loaded_data)}")
     return loaded_data
+
