@@ -20,7 +20,12 @@ Last updated: 21.07.2025
 # --------------------------------------------------------------------------------------------
 from pathlib import Path
 import mne 
+import numpy as np
 from typing import Optional, List, Dict, Tuple
+from scipy.signal import hilbert
+from mne import create_info
+from mne.io import RawArray
+from scipy.ndimage import maximum_filter, uniform_filter1d
 # --------------------------------------------------------------------------------------------
 #  Functions
 # --------------------------------------------------------------------------------------------
@@ -128,3 +133,37 @@ def load_all_subjects(
     print(f"[INFO] Total loaded subjects: {len(loaded_data)}")
     return loaded_data
 
+def remove_oscillation(raw: mne.io.Raw, window_size: int = 100) -> mne.io.Raw:
+    """
+    Remove oscillations by replacing the signal with non-overlapping max within windows.
+
+    Args:
+        raw (mne.io.Raw): EEG data (must be preloaded).
+        window_size (int): Window size in samples for non-overlapping max filter.
+
+    Returns:
+        mne.io.Raw: New Raw object containing piecewise max-filtered signals.
+    """
+
+    data = raw.get_data()
+    envelopes = []
+
+    def non_overlapping_max(signal, wsize):
+        n = len(signal)
+        max_values = []
+        for start in range(0, n, wsize):
+            end = min(start + wsize, n)
+            max_val = np.max(signal[start:end])
+            max_values.extend([max_val] * (end - start))
+        return np.array(max_values)
+
+    for ch_idx in range(data.shape[0]):
+        # Directly apply non-overlapping max on raw EEG data 
+        max_filtered = non_overlapping_max(data[ch_idx], window_size)
+        envelopes.append(max_filtered)
+
+    envelopes = np.array(envelopes)  # shape: (n_channels, n_times)
+    info = raw.info.copy()
+    raw_filtered = RawArray(envelopes, info)
+
+    return raw_filtered

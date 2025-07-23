@@ -32,7 +32,6 @@ cebra_model = CEBRA(
     time_offsets=10, 
 )
 
-
 # Define the path to the 'data' directory
 data_dir = Path(r"E:\.Cris Work\preproc_cleaned\preproc")
 
@@ -58,7 +57,7 @@ data_dict = eeg_dataloader.load_all_subjects(
     pick_channels=None,
     t_start=None,  # seconds
     t_end=None,
-    filter_frequency_band=alpha) 
+    filter_frequency_band=None) 
 
 for subj, info in data_dict.items():
     print(f"Subject: {subj}")
@@ -67,26 +66,48 @@ for subj, info in data_dict.items():
     print(f"  Snippet Duration: {info['snippet_duration_sec']:.2f} sec")
 
 # 3. Quick test
-all_data = []
+all_envelopes = [] 
 
-for subject_key, raw in data_dict.items():
+for subject_key, info in data_dict.items():
     raw = info["raw"]
-    raw.plot(n_channels=30, duration=10, block=True, title=f"EEG: {subject_key}")
-
-    # Pick EEG channels only
-    print("Available channel names:", raw.info['ch_names'])
-
     picks = mne.pick_types(raw.info, eeg=True, eog=False)
+    # Compute power spectral density using Welch's method
+    desired_window_sec = 0.5
+    sfreq = raw.info['sfreq']  # Sampling frequency
+    n_per_seg = int(sfreq * desired_window_sec)
+    # Compute PSD with 1-second window
+    psd = raw.compute_psd(fmin=1, fmax=50, picks=picks, n_per_seg=n_per_seg)
+    psds = psd.get_data()
+    freqs = psd.freqs
 
-    data = raw.get_data(picks=picks).T  # shape: (n_times, n_channels)
-    all_data.append(data)
+    # Identify dominant frequency
+    mean_psd = psds.mean(axis=0)
+    dominant_freq = freqs[np.argmax(mean_psd)]
+    print(f"Dominant frequency (1s window): {dominant_freq:.2f} Hz")
+
+    # Optional plot
+    psd.plot()
+
+    # Get envelope data from Hilbert transform (no plotting inside)
+    raw_envelope = eeg_dataloader.remove_oscillation(raw)
+
+    # Pick EEG channels from the envelope Raw object
+    picks = mne.pick_types(raw_envelope.info, eeg=True, eog=False)
+
+    # Extract envelope data with selected channels (shape: n_channels, n_times)
+    envelope_data = raw_envelope.get_data(picks=picks).T  # transpose to (n_times, n_channels)
+
+    all_envelopes.append(envelope_data)
+
+    # Plot envelopes after picking
+    raw_envelope.plot(picks=picks, n_channels=min(30, len(picks)), duration=10, block=True, 
+                     title=f"Amplitude Envelope Max- {subject_key}")
 
 # Combine into a single array
-X = np.concatenate(all_data, axis=0)  # (n_times, n_channels)
+X = np.concatenate(all_envelopes, axis=0)  # (n_times, n_channels)
 # Fit model
 cebra_model.fit(X)
 embedding = cebra_model.transform(X)
-
 
 times = np.arange(data.shape[0]) / 500.0  # in seconds
 # [ERROR]: plot embedding: Problem rendering, too many points --> solution downsampled visualisation
