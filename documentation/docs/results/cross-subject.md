@@ -37,8 +37,6 @@ The even spreading accross the whole planeuggests that each video elicits a wide
 ## Channels Selection
 Because participants engaged in multiple simultaneous tasks (e.g., monitoring devices, labeling videos), neural activity related to these non-emotional cognitive processes might be mixed into the EEG signal. Removing or selecting specific channels can help filter out neural signals related to attention, motor activity, or other cognitive demands that are not central to the emotional processing we want to isolate. To est if certain brain regions drive specific embedding geometries drive embedding structures, multiple channel subsets were tested in subject 020. 
 
-![alt text](image-2.png)
-
 Across all channel subsets:
 
 - The flatness and color gradient persist.
@@ -46,24 +44,32 @@ Across all channel subsets:
 
 Changes in the geomertry of the embedding suggest that different regions carry different types/amount of intormation about the neural state space
 
+![alt text](image-2.png)
+
 ### Frontal Channels
-
-Subset: ['Fz', 'F3', 'F4', 'F7', 'F8', 'AF3', 'AF4', 'AFz']
-
-The resulting embeddings are more rounded, particularly in the center. Suggests a more balanced distribution of neural variability across dimensions
+Subset: ['Fz', 'F3', 'F4', 'F7', 'F8', 'AF3', 'AF4', 'AFz']. The resulting embeddings are more rounded, particularly in the center. Suggests a more balanced distribution of neural variability across dimensions
 
 ### Frontotemporal Channels 
-
-Frontal channels + T7, T8
-
-Embeddings become more elongated and thinner, with reduced spread. This suggests that variability is dominated by a single, strong latent factor—likely tied to external sensory-emotional input. 
-
+Subset: ['Fz', 'F3', 'F4', 'F7', 'F8', 'T7', 'T8'] Embeddings become more elongated and thinner, with reduced spread. This suggests that variability is dominated by a single, strong latent factor—likely tied to external sensory-emotional input. 
 
 ### Frontal-Parietal Channels
+Subset: ['P3', 'P4', 'Pz'] The resulting embeddings are round and evenly spread. 
 
-Subset: ['P3', 'P4', 'Pz']
+## Model selection
+offset10 vs offset50 vs offset1
 
-The resulting embeddings are distinctly round and evenly spread. 
+## Filter
+alpha beta theta gamma
+
+## Snippets
+instead of full dataset only a snippet
+shorter length 2 min vs full lenght
+
+## Oscillation removal
+Average/Maximum
+over a window of X seconds, to remove oscillation
+
+### Power spectrum analyses
 
 
 # Assumption: emotion dominates
@@ -75,6 +81,14 @@ What we expected:
     - embeddings form clear clusters, and each cluster corresponds to a particular video (or emotion). Sugessting that the brain enters qualitatively different neural states depending on the emotional content. The emotional processing is *strong* enough to produce separable neural dynamics.
 - Smooth Trajectories = emotional transitions
     - embeddings form curved lines with temporal color gradient that form loops. Emotional stated evolve gradually and do not switch abrubtly. mixing and transitional states. continuous emotion space (e.g valence-arrousal)
+
+### Force expectations with artifical data
+#### Clustering
+![alt text](image-3.png)
+![alt text](image-6.png)
+### Trajectory 
+![alt text](image-4.png)
+![alt text](image-5.png)
 
 ## Results
 What we got: Elongates shapes 
