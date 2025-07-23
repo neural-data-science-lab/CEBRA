@@ -20,7 +20,7 @@ Last updated: 21.07.2025
 # --------------------------------------------------------------------------------------------
 from pathlib import Path
 import mne 
-from typing import Optional, List, Dict
+from typing import Optional, List, Dict, Tuple
 # --------------------------------------------------------------------------------------------
 #  Functions
 # --------------------------------------------------------------------------------------------
@@ -73,7 +73,8 @@ def load_all_subjects(
     pick_channels: Optional[List[str]] = None,
     subjects_to_load: Optional[List[str]] = None,
     t_start: Optional[float] = None,
-    t_end: Optional[float] = None
+    t_end: Optional[float] = None,
+    filter_frequency_band:  Optional[Tuple[float, float]] = None
 ) -> Dict[str, Dict]:
     """
     Load EEG data for specified subjects, optionally extracting a snippet and reporting metadata.
@@ -109,6 +110,10 @@ def load_all_subjects(
             if t_start is not None and t_end is not None:
                 raw = raw.copy().crop(tmin=t_start, tmax=t_end)
                 snippet_duration = raw.times[-1] - raw.times[0]
+            
+            if filter_frequency_band is not None:
+                fmin, fmax = filter_frequency_band
+                raw.filter(fmin, fmax, fir_design='firwin', verbose=False)
 
             loaded_data[subject_id] = {
                 "raw": raw,

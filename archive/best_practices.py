@@ -17,7 +17,7 @@ CEBRA is a self-supervised model that learns low-dimensional latent representati
 
 # 0. Define a CEBRA model with defaults
 cebra_model = CEBRA(
-    model_architecture="offset10-model", #consider: "offset10-model-mse" if Euclidean
+    model_architecture="offset50-model", #standard "offset10-model" alternatives: "offset1-model", "offset50-model"
     batch_size=512,
     learning_rate=3e-4,
     temperature_mode='constant',
@@ -30,31 +30,35 @@ cebra_model = CEBRA(
     device="cuda_if_available",
     verbose=True,
     time_offsets=10, 
-
 )
 
-#2. Load Data
-# Define the path to the 'data' directory
 
+# Define the path to the 'data' directory
 data_dir = Path(r"E:\.Cris Work\preproc_cleaned\preproc")
 
-# Load EEG data
 # For a single subject: 
 subject_ids_to_load = ["sub-020"]
 
-# Cshnnel selection
-all_channels = ['VEOG_up', 'Fz', 'F3', 'F7', 'HEOG_left', 'FC5', 'FC1', 'C3', 'T7', 'TP9', 'CP5', 'CP1', 'Pz', 'P3', 'P7', 'O1', 'Oz', 'O2', 'P4', 'P8', 'TP10', 'CP6', 'CP2', 'Cz', 'C4', 'T8', 'HEOG_right', 'FC6', 'FC2', 'F4', 'F8', 'VEOG_down', 'AF7', 'AF3', 'AFz', 'F1', 'F5', 'FT7', 'FC3', 'C1', 'C5', 'TP7', 'CP3', 'P1', 'P5', 'PO7', 'PO3', 'POz', 'PO4', 'PO8', 'P6', 'P2', 'CPz', 'CP4', 'TP8', 'C6', 'C2', 'FC4', 'FT8', 'F6', 'F2', 'AF8', 'AF4', 'Iz', 'ECG']
+# Channel selection
 frontal_channels = ['Fz', 'F3', 'F4', 'F7', 'F8', 'AF3', 'AF4', 'AFz']
 frontotemporal_channels = ['Fz', 'F3', 'F4', 'F7', 'F8', 'T7', 'T8']
 parietal_channels = ['Pz', 'P3', 'P4']
 
+#Filter
+theta = (4,8)
+alpha = (8,12) 
+beta = (13,30)
+gamma = (30,100)
 
+
+#2. Load Data
 data_dict = eeg_dataloader.load_all_subjects(
     data_dir=str(data_dir),
     subjects_to_load=subject_ids_to_load,
-    pick_channels=all_channels,
-    t_start=900,  # seconds
-    t_end=1020)
+    pick_channels=None,
+    t_start=None,  # seconds
+    t_end=None,
+    filter_frequency_band=alpha) 
 
 for subj, info in data_dict.items():
     print(f"Subject: {subj}")
@@ -68,9 +72,6 @@ all_data = []
 for subject_key, raw in data_dict.items():
     raw = info["raw"]
     raw.plot(n_channels=30, duration=10, block=True, title=f"EEG: {subject_key}")
-    
-    # # Bandpass filter (optional but good for state analysis)
-    # raw.filter(1., 40., fir_design='firwin', verbose=False)py
 
     # Pick EEG channels only
     print("Available channel names:", raw.info['ch_names'])
@@ -111,9 +112,6 @@ fig = plot_embedding_interactive(
     cmap="rainbow"
 )
 fig.write_html("embedding.html", auto_open=True)
-
-# Optional: Plot training loss
-cebra.plot_loss(embedding)
 
 # Overview information
 print("Embedding shape:", embedding.shape)
