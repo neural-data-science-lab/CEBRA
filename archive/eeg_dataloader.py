@@ -75,95 +75,70 @@ def load_subject(subject_folder: Path, data_type: str = "preproc") -> mne.io.Raw
 def load_all_subjects(
     data_dir: str = "data",
     data_type: str = "preproc",
-    pick_channels: Optional[List[str]] = None,
     subjects_to_load: Optional[List[str]] = None,
-    t_start: Optional[float] = None,
-    t_end: Optional[float] = None,
-    filter_frequency_band:  Optional[Tuple[float, float]] = None
-) -> Dict[str, Dict]:
+) -> Dict[str, mne.io.Raw]:
     """
-    Load EEG data for specified subjects, optionally extracting a snippet and reporting metadata.
+    Load full raw data for all specified subjects without cropping or filtering.
+
+    Args:
+        data_dir (str): Path to data directory.
+        data_type (str): 'preproc' or 'rawdata'.
+        subjects_to_load (List[str], optional): List of subject IDs to load. Loads all if None.
 
     Returns:
-        dict: Keys are subject IDs, values are dictionaries with:
-              - 'raw': Raw object
-              - 'sfreq': Sampling frequency
-              - 'duration_sec': Total duration of full data
-              - 'snippet_duration_sec': Duration of the snippet (if used)
+        Dict[str, mne.io.Raw]: Dictionary of subject_id to raw MNE objects.
     """
     data_dir = Path(data_dir)
-    loaded_data = {}
+    loaded_raws = {}
 
     for subject_folder in sorted(data_dir.glob("sub-*")):
         subject_id = subject_folder.name
         if subjects_to_load is not None and subject_id not in subjects_to_load:
             continue
-
-        print(f"[INFO] Loading subject: {subject_id}")
-
         try:
             raw = load_subject(subject_folder, data_type=data_type)
-            original_raw = raw.copy()  # Keep full for duration
-            if pick_channels is not None:
-                raw.pick(pick_channels)
-
-            # Duration of full dataset
-            full_duration = original_raw.times[-1] - original_raw.times[0]
-            sfreq = raw.info['sfreq']
-
-            snippet_duration = None
-            if t_start is not None and t_end is not None:
-                raw = raw.copy().crop(tmin=t_start, tmax=t_end)
-                snippet_duration = raw.times[-1] - raw.times[0]
-            
-            if filter_frequency_band is not None:
-                fmin, fmax = filter_frequency_band
-                raw.filter(fmin, fmax, fir_design='firwin', verbose=False)
-
-            loaded_data[subject_id] = {
-                "raw": raw,
-                "sfreq": sfreq,
-                "duration_sec": full_duration,
-                "snippet_duration_sec": snippet_duration if snippet_duration else full_duration
-            }
-
+            loaded_raws[subject_id] = raw
+            print(f"[INFO] Loaded full data for {subject_id}")
         except Exception as e:
             print(f"[ERROR] Failed to load {subject_id}: {e}")
 
-    print(f"[INFO] Total loaded subjects: {len(loaded_data)}")
-    return loaded_data
+    print(f"[INFO] Total subjects fully loaded: {len(loaded_raws)}")
+    return loaded_raws
 
-def remove_oscillation(raw: mne.io.Raw, window_size: int = 100) -> mne.io.Raw:
+
+def filter_crop_data(
+    raw: mne.io.Raw,
+    t_start: Optional[float] = None,
+    t_end: Optional[float] = None,
+    filter_frequency_band: Optional[Tuple[float, float]] = None,
+    pick_channels: Optional[List[str]] = None
+) -> mne.io.Raw:
     """
-    Remove oscillations by replacing the signal with non-overlapping max within windows.
+    Apply time cropping, frequency filtering, and channel selection on a Raw object.
 
     Args:
-        raw (mne.io.Raw): EEG data (must be preloaded).
-        window_size (int): Window size in samples for non-overlapping max filter.
+        raw (mne.io.Raw): Raw EEG data (loaded full).
+        t_start (float, optional): Start time in seconds for cropping.
+        t_end (float, optional): End time in seconds for cropping.
+        filter_frequency_band (Tuple[float, float], optional): Frequency band (fmin, fmax) to filter.
+        pick_channels (List[str], optional): List of channel names to select.
 
     Returns:
-        mne.io.Raw: New Raw object containing piecewise max-filtered signals.
+        mne.io.Raw: Processed Raw object with filters applied.
     """
+    processed = raw.copy()
 
-    data = raw.get_data()
-    envelopes = []
+    if t_start is not None and t_end is not None:
+        processed.crop(tmin=t_start, tmax=t_end)
 
-    def non_overlapping_max(signal, wsize):
-        n = len(signal)
-        max_values = []
-        for start in range(0, n, wsize):
-            end = min(start + wsize, n)
-            max_val = np.max(signal[start:end])
-            max_values.extend([max_val] * (end - start))
-        return np.array(max_values)
+    if filter_frequency_band is not None:
+        fmin, fmax = filter_frequency_band
+        processed.filter(fmin, fmax, fir_design='firwin', verbose=False)
 
-    for ch_idx in range(data.shape[0]):
-        # Directly apply non-overlapping max on raw EEG data 
-        max_filtered = non_overlapping_max(data[ch_idx], window_size)
-        envelopes.append(max_filtered)
+    if pick_channels is not None:
+        processed.pick_channels(pick_channels)
 
-    envelopes = np.array(envelopes)  # shape: (n_channels, n_times)
-    info = raw.info.copy()
-    raw_filtered = RawArray(envelopes, info)
+    return processed
 
-    return raw_filtered
+
+
