@@ -52,7 +52,7 @@ def load_subject(subject_folder: Path, data_type: str = "preproc") -> mne.io.Raw
 
     # Try loading FIF first (preprocessed)
     if data_type == "preproc":
-        files = list(eeg_folder.glob("*before_ica.fif"))
+        files = list(eeg_folder.glob("*after_ica.fif"))
         if not files:
             raise FileNotFoundError(f"[INFO] No FIF files found in {eeg_folder}")
         raw = mne.io.read_raw_fif(files[0], preload=True, verbose=False)

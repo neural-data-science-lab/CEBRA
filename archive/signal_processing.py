@@ -24,6 +24,7 @@ pio.renderers.default = "browser"
 import dash
 from dash import dcc, html, Input, Output, State
 import plotly.subplots as sp
+import re
 
 from cebra import CEBRA
 from cebra.integrations.plotly import plot_embedding_interactive
@@ -38,7 +39,7 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 # ========== Variables ==========
 
 # Path to your EEG data
-data_dir = Path(r"E:\.Cris Work\preproc_cleaned\preproc")
+data_dir = Path(r"E:\Cris_Work\preproc")
 output_root = Path("results")
 output_root.mkdir(exist_ok=True)
 
@@ -49,8 +50,8 @@ subject_ids_to_load = [f"sub-{i:03d}" for i in range(subject_range[0], subject_r
 # time cropping
 time_configs = [(None,None), # Full session
                 (0, 300),  # Baseline / Start
-                (600, 900),  # Stimulus A
-                (600, 660), # Peak emotional moment
+                (600, 900),  # Stimulus segment
+                (600, 660), # single moment
                 (0, 1390),  # Entire session
                 (1200, 1391)] # Ending segment
 
@@ -172,13 +173,6 @@ def quick_run_cebra(X, title="CEBRA Embedding"):
 
 # Global dict to hold embeddings and figures for dashboard
 # Key structure: {subject: {config_str: fig}}
-embeddings_dict = {}
-
-def store_embedding_for_dashboard(subject_key, config_str, fig):
-    if subject_key not in embeddings_dict:
-        embeddings_dict[subject_key] = {}
-    embeddings_dict[subject_key][config_str] = fig
-
 
 def run_subject_pipeline(subject_key, info, t_start, t_end, band, ch_label, output_root):
     raw = info["raw"].copy()
@@ -213,11 +207,6 @@ def run_subject_pipeline(subject_key, info, t_start, t_end, band, ch_label, outp
     config_str = f"T{t_start}-{t_end}_B{band}_CH{ch_label}"
     fig_title = f"CEBRA - {subject_key} - {config_str}"
     fig, embedding = quick_run_cebra(X, title=fig_title)
-    # Store for dashboard
-    store_embedding_for_dashboard(subject_key, config_str, fig)
-    logger.info(f"Embeddings dict keys: {list(embeddings_dict.keys())}")
-    for subj, configs in embeddings_dict.items():
-        logger.info(f"Subject {subj} configs: {list(configs.keys())}")
 
     if SAVE_HTML:
         subject_folder = output_root / subject_key
@@ -228,6 +217,21 @@ def run_subject_pipeline(subject_key, info, t_start, t_end, band, ch_label, outp
 
 
 # ===== Dash APP =====
+def get_available_embeddings(output_root):
+    subject_dirs = list(output_root.glob("sub-*"))
+    subject_config_map = {}
+
+    for subject_dir in subject_dirs:
+        subject_key = subject_dir.name
+        html_files = subject_dir.glob("*.html")
+        subject_config_map[subject_key] = []
+        for html_file in html_files:
+            match = re.search(rf"{subject_key}_(.+?)_embedding\.html", html_file.name)
+            if match:
+                config_str = match.group(1)
+                subject_config_map[subject_key].append((config_str, html_file))
+    return subject_config_map
+
 def make_grid_of_figures(figs, rows, cols, subplot_titles):
     # Create a specs grid with 3D scene type in every cell
     specs = [[{'type': 'scene'} for _ in range(cols)] for _ in range(rows)]
@@ -239,36 +243,30 @@ def make_grid_of_figures(figs, rows, cols, subplot_titles):
         c = i % cols + 1
         for trace in plotly_fig.data:
             fig.add_trace(trace, row=r, col=c)
-        # For 3D subplots, axes titles are part of the 'scene'
-        # So if you want to customize axes labels, you must update scene layout, e.g.:
-        # scene_key = f'scene{(i+1) if (i>0) else ""}'
-        # fig['layout'][scene_key].update(xaxis_title='X', yaxis_title='Y', zaxis_title='Z')
     
     fig.update_layout(height=300*rows, width=400*cols, showlegend=False, title_text="CEBRA Embeddings Grid")
     return fig
 
 
-# ==== Dash app ====
-
 def launch_dashboard():
     app = dash.Dash(__name__)
     
-    subjects = sorted(embeddings_dict.keys())
-    # Collect all config_strs from any subject
-    all_configs = set()
-    for subject in embeddings_dict:
-        all_configs.update(embeddings_dict[subject].keys())
-    all_configs = sorted(all_configs)
+    subject_config_map = get_available_embeddings(output_root)
+    subjects = sorted(subject_config_map.keys())
+
+    # Collect all config_strs from available files
+    all_configs = sorted(set(
+        config for configs in subject_config_map.values() for config, _ in configs
+    ))
 
     app.layout = html.Div([
-        html.H1("EEG CEBRA Embeddings Dashboard"),
+        html.H1("Live EEG CEBRA Embeddings Dashboard"),
         
         html.Div([
             html.Label("Filter by Subject:"),
             dcc.Dropdown(
                 id='subject-dropdown',
                 options=[{'label': s, 'value': s} for s in subjects],
-                multi=False,
                 placeholder="Select a subject"
             ),
         ], style={'width': '48%', 'display': 'inline-block'}),
@@ -278,10 +276,11 @@ def launch_dashboard():
             dcc.Dropdown(
                 id='config-dropdown',
                 options=[{'label': c, 'value': c} for c in all_configs],
-                multi=False,
                 placeholder="Select a configuration"
             ),
         ], style={'width': '48%', 'display': 'inline-block'}),
+
+        html.Button("Refresh", id="refresh-button", n_clicks=0),
         
         html.Div(id='plots-container')
     ])
@@ -290,47 +289,39 @@ def launch_dashboard():
         Output('plots-container', 'children'),
         Input('subject-dropdown', 'value'),
         Input('config-dropdown', 'value'),
+        Input("refresh-button", "n_clicks")
     )
-    def update_plots(selected_subject, selected_config):
+    def update_iframes(selected_subject, selected_config, n_clicks):
+        subject_config_map = get_available_embeddings(output_root)
+        figs_to_show = []
+
         if selected_subject and selected_config:
             return html.Div("Please select either Subject OR Configuration, not both.")
-        
-        figs = []
-        subplot_titles = []
-        rows, cols = 1, 1
-        
-        if selected_subject:
-            # Show all configurations for this subject in grid
-            subject_figs = embeddings_dict.get(selected_subject, {})
-            figs = [subject_figs[c] for c in sorted(subject_figs.keys())]
-            subplot_titles = sorted(subject_figs.keys())
-            n = len(figs)
-            cols = 4
-            rows = (n // cols) + int(n % cols != 0)
+
+        elif selected_subject:
+            configs = subject_config_map.get(selected_subject, [])
+            for config_str, filepath in configs:
+                figs_to_show.append(html.Div([
+                    html.H4(f"{selected_subject} - {config_str}"),
+                    html.Iframe(src=filepath.as_uri(), width="100%", height="600px")
+                ]))
+
         elif selected_config:
-            # Show all subjects for this configuration side by side
-            figs = []
-            available_subjects = []
-            for subj in sorted(embeddings_dict.keys()):
-                subj_figs = embeddings_dict[subj]
-                if selected_config in subj_figs:
-                    figs.append(subj_figs[selected_config])
-                    available_subjects.append(subj)
-            subplot_titles = available_subjects
-            n = len(figs)
-            cols = min(4, n)
-            rows = (n // cols) + int(n % cols != 0)
+            for subject, configs in subject_config_map.items():
+                for config_str, filepath in configs:
+                    if config_str == selected_config:
+                        figs_to_show.append(html.Div([
+                            html.H4(f"{subject} - {config_str}"),
+                            html.Iframe(src=filepath.as_uri(), width="100%", height="600px")
+                        ]))
+
         else:
             return html.Div("Please select a Subject or Configuration to display plots.")
-        
-        if len(figs) == 0:
-            return html.Div("No plots found for selected filter.")
-        
-        grid_fig = make_grid_of_figures(figs, rows, cols, subplot_titles)
-        
-        return dcc.Graph(figure=grid_fig, style={"height": f"{rows*350}px"})
-    
+
+        return figs_to_show if figs_to_show else html.Div("No HTML files found.")
+
     app.run(debug=False, port=8050)
+
 
 # ===== Main Loop =====
 
