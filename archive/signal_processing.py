@@ -12,19 +12,19 @@ The script:
     - Time range
     - Frequency band
     - Channel configuration
+
+
+- added colour system for encoding valence affect labels insto colour system
 """
 import numpy as np
 import matplotlib.pyplot as plt
 import mne
 from pathlib import Path
 import logging
-import plotly.graph_objects as go
 import plotly.io as pio
 pio.renderers.default = "browser"
-import dash
-from dash import dcc, html, Input, Output, State
-import plotly.subplots as sp
-import re
+import matplotlib.colors as mcolors
+from typing import Optional, List, Dict, Tuple
 
 from cebra import CEBRA
 from cebra.integrations.plotly import plot_embedding_interactive
@@ -44,22 +44,21 @@ output_root = Path("results")
 output_root.mkdir(exist_ok=True)
 
 # Configurations
-subject_range = (0, 48)
+subject_range = (0, 4)
 subject_ids_to_load = [f"sub-{i:03d}" for i in range(subject_range[0], subject_range[1])]
 
 # time cropping
 time_configs = [(None,None), # Full session
                 (0, 300),  # Baseline / Start
                 (600, 900),  # Stimulus segment
-                (600, 660), # single moment
-                (0, 1390),  # Entire session
-                (1200, 1391)] # Ending segment
+                (600, 660),] # single moment
+                #(1200, 1391)] # Ending segment
 
 # Filter by frequency band
-theta = (4, 8)
-alpha = (8, 12)
-beta = (13, 30)
-filter_bands = [None, theta, alpha, beta] #Hz
+#theta = (4, 8)
+#alpha = (8, 12)
+#beta = (13, 30)
+filter_bands = [None] # theta, alpha, beta Hz
 
 # Select specific EEG channels
 frontal_channels = [
@@ -82,10 +81,10 @@ combined = [
     'Fz', 'AFz'
 ]
 #CP and F, tremporal,  insula 
-channel_configs = [(None, "all"),
-                    (tuple(frontal_channels), "frontal"),
-                    (tuple(central_parietal_channels), "central_parietal"), 
-                    (tuple(combined), "frontal_central_parietal")]
+channel_configs = [(None, "all"),]
+                    #(tuple(frontal_channels), "frontal"),
+                    #(tuple(central_parietal_channels), "central_parietal"), 
+                    #(tuple(combined), "frontal_central_parietal")]
 
 
 # Generate configurations: baseline + one parameter changed
@@ -150,7 +149,63 @@ def plot_data(X, title="Data Example"):
     plt.legend()
     plt.show(block=False)
 
-def quick_run_cebra(X, title="CEBRA Embedding"):
+#Define custom emotional color wheel (angle → color)
+angle_degrees = np.array([0, 45, 90, 135, 180, 225, 270, 315, 360])
+color_hex = ['#90ee90',  # 0°  light green
+             '#ffff00',  # 45° yellow
+             '#ff9900',  # 90° orange
+             '#ff0000',  # 135° red
+             '#800080',  # 180° purple
+             '#0000ff',  # 225° blue
+             '#00ffff',  # 270° cyan
+             '#00ff00',  # 315° green
+             '#90ee90']  # 360° repeat light green
+rgb_colors = np.array([mcolors.to_rgb(c) for c in color_hex])
+
+# Compute angle and vector_length from centered VA
+def compute_angle_vector_length(valence, arousal):
+    val_clipped = np.clip(valence, -1, 1)
+    aro_clipped = np.clip(arousal, -1, 1)
+
+    x = val_clipped
+    y = aro_clipped
+
+    angle_rad = np.arctan2(y, x)
+    angle_deg = (np.degrees(angle_rad) + 360) % 360
+
+    vector_length = np.sqrt(x**2 + y**2) / np.sqrt(2)  # Normalize to [0, 1]
+    return angle_deg, np.clip(vector_length, 0, 1)
+
+#Interpolate color by angle
+def interpolate_rgb_from_angle(angle_deg):
+    angle_deg = np.asarray(angle_deg)
+    interpolated_rgb = np.zeros((len(angle_deg), 3))
+
+    for i, angle in enumerate(angle_deg):
+        idx = np.searchsorted(angle_degrees, angle) - 1
+        idx = np.clip(idx, 0, len(angle_degrees) - 2)
+
+        angle1 = angle_degrees[idx]
+        angle2 = angle_degrees[idx + 1]
+        color1 = rgb_colors[idx]
+        color2 = rgb_colors[idx + 1]
+
+        t = (angle - angle1) / (angle2 - angle1)
+        interpolated_rgb[i] = (1 - t) * color1 + t * color2
+
+    return interpolated_rgb
+
+def valence_arousal_emotion_color(valence, arousal, desaturate_color=(1.0, 1.0, 1.0)):
+    angle, vector_length = compute_angle_vector_length(valence, arousal)
+
+    base_rgb = interpolate_rgb_from_angle(angle)
+
+    # Apply radial saturation: mix toward white
+    final_rgb = (1 - vector_length[:, None]) * desaturate_color + vector_length[:, None] * base_rgb
+    return np.clip(final_rgb, 0, 1)
+
+ 
+def quick_run_cebra(X, valence_aligned, arousal_aligned, title="CEBRA Embedding by Valence-Arousal"):
     model = cebra_model.fit(X)
     embedding = model.transform(X)
     times = np.arange(X.shape[0]) / 500.0  #  500 Hz sampling
@@ -161,12 +216,17 @@ def quick_run_cebra(X, title="CEBRA Embedding"):
     embedding_small = embedding[idx]
     times_small = times[idx]
 
+    # Get joint RGB colors
+    valence_small = valence_aligned[idx]
+    arousal_small = arousal_aligned[idx]
+    colors = valence_arousal_emotion_color(valence_small, arousal_small)
+    colors_hex = np.array([mcolors.to_hex(c) for c in colors])
+
     fig = plot_embedding_interactive(
         embedding_small,
-        embedding_labels=times_small,
+        embedding_labels= colors_hex,
         title=title,
         markersize=2,
-        cmap="rainbow"
     )
     plt.close('all') # clean up hidden matplotlib figures
     return fig, embedding
@@ -204,129 +264,142 @@ def run_subject_pipeline(subject_key, info, t_start, t_end, band, ch_label, outp
     # # Plot picked & transposed data 
     # plot_data(X, title=f"EEG After Picks & Transpose - {subject_key}")
 
+    # Load behavioral labels 
+    subject_folder = data_dir / subject_key
+    beh_df = eeg_dataloader.load_behavioral_labels(subject_folder)
+
+    # 'valence' has one value per timestamp (sample)
+    valence = beh_df["valence"].values
+    arousal = beh_df["arousal"].values
+
+    t_behavior = beh_df["timestamp"].values
+    t_eeg = np.arange(X.shape[0]) / raw.info["sfreq"]  # EEG timestamps
+
+    if len(valence) != X.shape[0]:
+        print("[INFO] Interpolating behavioral values to match EEG sample rate...")
+        from scipy.interpolate import interp1d
+
+        interp_val = interp1d(t_behavior, valence, kind="linear", bounds_error=False, fill_value="extrapolate")
+        interp_aro = interp1d(t_behavior,   arousal  , kind="linear", bounds_error=False, fill_value="extrapolate")
+
+        valence_aligned = interp_val(t_eeg)
+        arousal_aligned = interp_aro(t_eeg)
+    else:
+        valence_aligned = valence
+        arousal_aligned = arousal
+    
+    # Downsample for plotting
     config_str = f"T{t_start}-{t_end}_B{band}_CH{ch_label}"
+    debug_valence_arousal_distribution(
+        valence_aligned, 
+        arousal_aligned,
+        subject_key=subject_key,
+        output_root=output_root,
+        config_str=config_str
+    )
+
     fig_title = f"CEBRA - {subject_key} - {config_str}"
-    fig, embedding = quick_run_cebra(X, title=fig_title)
+    fig, embedding = quick_run_cebra(X, valence_aligned, arousal_aligned, title=fig_title)
+
+
 
     if SAVE_HTML:
         subject_folder = output_root / subject_key
         subject_folder.mkdir(parents=True, exist_ok=True)
-        output_file = subject_folder / f"{subject_key}_{config_str}_embedding.html"
+        output_file = subject_folder / f"VA_{subject_key}_{config_str}_embedding.html"
         fig.write_html(str(output_file), auto_open=False)
         logger.info(f"Saved: {output_file}")
 
 
-# ===== Dash APP =====
-def get_available_embeddings(output_root):
-    subject_dirs = list(output_root.glob("sub-*"))
-    subject_config_map = {}
+def debug_valence_arousal_distribution(valence, arousal, subject_key=None, output_root=None, config_str=None):
+    angle, _ = compute_angle_vector_length(valence, arousal)
+    colors = valence_arousal_emotion_color(valence, arousal)
 
-    for subject_dir in subject_dirs:
-        subject_key = subject_dir.name
-        html_files = subject_dir.glob("*.html")
-        subject_config_map[subject_key] = []
-        for html_file in html_files:
-            match = re.search(rf"{subject_key}_(.+?)_embedding\.html", html_file.name)
-            if match:
-                config_str = match.group(1)
-                subject_config_map[subject_key].append((config_str, html_file))
-    return subject_config_map
+    # Ordner zum Speichern anlegen, wenn Pfad und Subject Key übergeben wurden
+    if output_root is not None and subject_key is not None and config_str is not None:
+        save_dir = Path(output_root) / "exploration" / subject_key
+        save_dir.mkdir(parents=True, exist_ok=True)
+    else:
+        save_dir = None
 
-def make_grid_of_figures(figs, rows, cols, subplot_titles):
-    # Create a specs grid with 3D scene type in every cell
-    specs = [[{'type': 'scene'} for _ in range(cols)] for _ in range(rows)]
-    fig = sp.make_subplots(rows=rows, cols=cols, specs=specs, subplot_titles=subplot_titles)
+    # Plot 1: Scatter Valence vs Arousal
+    plt.figure(figsize=(6, 6))
+    plt.scatter(valence, arousal, c=colors, s=8)
+    plt.axhline(0, color='gray', linestyle='--')
+    plt.axvline(0, color='gray', linestyle='--')
+    plt.xlabel("Valence")
+    plt.ylabel("Arousal")
+    plt.title("Valence-Arousal Distribution Colored by Angle")
+    plt.grid(True)
+    plt.gca().set_aspect('equal')
 
-    
-    for i, plotly_fig in enumerate(figs):
-        r = i // cols + 1
-        c = i % cols + 1
-        for trace in plotly_fig.data:
-            fig.add_trace(trace, row=r, col=c)
-    
-    fig.update_layout(height=300*rows, width=400*cols, showlegend=False, title_text="CEBRA Embeddings Grid")
-    return fig
+    if save_dir:
+        plt.savefig(save_dir / f"VA_distribution_{config_str}.png", dpi=150)
+        plt.close()
+    else:
+        plt.show()
+
+    # Plot 2: Histogram of Angles
+    plt.figure()
+    plt.hist(angle, bins=36)
+    plt.title("Histogram of Valence-Arousal Angles")
+    plt.xlabel("Angle (°)")
+    plt.ylabel("Frequency")
+
+    if save_dir:
+        plt.savefig(save_dir / f"VA_angle_histogram_{config_str}.png", dpi=150)
+        plt.close()
+    else:
+        plt.show()
 
 
-def launch_dashboard():
-    app = dash.Dash(__name__)
-    
-    subject_config_map = get_available_embeddings(output_root)
-    subjects = sorted(subject_config_map.keys())
 
-    # Collect all config_strs from available files
-    all_configs = sorted(set(
-        config for configs in subject_config_map.values() for config, _ in configs
-    ))
-
-    app.layout = html.Div([
-        html.H1("Live EEG CEBRA Embeddings Dashboard"),
-        
-        html.Div([
-            html.Label("Filter by Subject:"),
-            dcc.Dropdown(
-                id='subject-dropdown',
-                options=[{'label': s, 'value': s} for s in subjects],
-                placeholder="Select a subject"
-            ),
-        ], style={'width': '48%', 'display': 'inline-block'}),
-        
-        html.Div([
-            html.Label("Filter by Configuration:"),
-            dcc.Dropdown(
-                id='config-dropdown',
-                options=[{'label': c, 'value': c} for c in all_configs],
-                placeholder="Select a configuration"
-            ),
-        ], style={'width': '48%', 'display': 'inline-block'}),
-
-        html.Button("Refresh", id="refresh-button", n_clicks=0),
-        
-        html.Div(id='plots-container')
-    ])
-    
-    @app.callback(
-        Output('plots-container', 'children'),
-        Input('subject-dropdown', 'value'),
-        Input('config-dropdown', 'value'),
-        Input("refresh-button", "n_clicks")
+def plot_valence_arousal_color_wheel(res=300, desaturate_color=(1.0, 1.0, 1.0)):
+    """
+    Plot the custom valence-arousal emotional color wheel with radial saturation.
+    """
+    val_grid, aro_grid = np.meshgrid(
+        np.linspace(-1, 1, res),  # Valence: horizontal axis
+        np.linspace(-1, 1, res)   # Arousal: vertical axis
     )
-    def update_iframes(selected_subject, selected_config, n_clicks):
-        subject_config_map = get_available_embeddings(output_root)
-        figs_to_show = []
 
-        if selected_subject and selected_config:
-            return html.Div("Please select either Subject OR Configuration, not both.")
+    val_flat = val_grid.flatten()
+    aro_flat = aro_grid.flatten()
 
-        elif selected_subject:
-            configs = subject_config_map.get(selected_subject, [])
-            for config_str, filepath in configs:
-                figs_to_show.append(html.Div([
-                    html.H4(f"{selected_subject} - {config_str}"),
-                    html.Iframe(src=filepath.as_uri(), width="100%", height="600px")
-                ]))
+    colors = valence_arousal_emotion_color(val_flat, aro_flat, desaturate_color)
+    image = colors.reshape(res, res, 3)
 
-        elif selected_config:
-            for subject, configs in subject_config_map.items():
-                for config_str, filepath in configs:
-                    if config_str == selected_config:
-                        figs_to_show.append(html.Div([
-                            html.H4(f"{subject} - {config_str}"),
-                            html.Iframe(src=filepath.as_uri(), width="100%", height="600px")
-                        ]))
+    fig, ax = plt.subplots(figsize=(6, 6))
+    ax.imshow(image, extent=(-1, 1, -1, 1), origin='lower')
 
-        else:
-            return html.Div("Please select a Subject or Configuration to display plots.")
+    ax.set_xlabel("Valence")
+    ax.set_ylabel("Arousal")
+    ax.set_title("Valence-Arousal Color Wheel\n(Hue by Emotion, Saturation by Intensity)")
 
-        return figs_to_show if figs_to_show else html.Div("No HTML files found.")
+    # Annotate key angles (optional)
+    labels = {
+        (0.6, 0.6): "Joyfull\n(45°)",
+        (0.0, 0.8): "Tense/Excited\n(90°)",
+        (-0.6, 0.6): "Angry\n(135°)",
+        (-0.8, 0.0): "Frustrated/Depressed\n(180°)",
+        (-0.6, -0.6): "Sad\n(225°)",
+        (0.0, -0.8): "Tired/Calm\n(270°)",
+        (0.6, -0.6): "Relaxed\n(315°)",
+        (0.8, 0.0): "Content/Happy\n(0°)",
+        (0.0, 0.0): "Neutral\n"
+    }
 
-    app.run(debug=False, port=8050)
+    for (x, y), label in labels.items():
+        ax.text(x, y, label, ha='center', va='center', fontsize=8, color='black', bbox=dict(facecolor='white', alpha=0.7, edgecolor='none'))
 
+    plt.grid(False)
+    plt.tight_layout()
+    plt.show()
 
 # ===== Main Loop =====
 
 if __name__ == "__main__":
-    # Your original main loop with SAVE_HTML toggle
+    # plot_valence_arousal_color_wheel()
     SAVE_HTML = True  # Change to True to save HTML files instead of showing
     
     all_subjects_raws = eeg_dataloader.load_all_subjects(
@@ -355,5 +428,3 @@ if __name__ == "__main__":
             }
             run_subject_pipeline(subject_key, info, t_start, t_end, band_config, ch_label, output_root)
     
-    # Launch Dash dashboard after processing all embeddings
-    launch_dashboard()

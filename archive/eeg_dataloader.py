@@ -20,12 +20,9 @@ Last updated: 21.07.2025
 # --------------------------------------------------------------------------------------------
 from pathlib import Path
 import mne 
-import numpy as np
+import pandas as pd
 from typing import Optional, List, Dict, Tuple
-from scipy.signal import hilbert
-from mne import create_info
-from mne.io import RawArray
-from scipy.ndimage import maximum_filter, uniform_filter1d
+
 # --------------------------------------------------------------------------------------------
 #  Functions
 # --------------------------------------------------------------------------------------------
@@ -141,4 +138,22 @@ def filter_crop_data(
     return processed
 
 
+def load_behavioral_labels(subject_folder: Path) -> pd.DataFrame:
+    """
+    Load synchronized behavioral data (.tsv) from the beh folder.
+    
+    Args:
+        subject_folder (Path): Path to a subject directory (e.g., sub-001)
 
+    Returns:
+        pd.DataFrame: DataFrame with columns like timestamp, valence, arousal, etc.
+    """
+    beh_folder = subject_folder/ "beh"
+    print(beh_folder)
+    tsv_files = list(beh_folder.glob("*.tsv"))
+    if not tsv_files:
+        raise FileNotFoundError(f"[ERROR] No .tsv behavioral files found in {beh_folder}")
+    
+    df = pd.read_csv(tsv_files[0], sep="\t")  # or sep=",", depending on the format
+    print(f"[INFO] Loaded behavioral data: {tsv_files[0].name}")
+    return df
