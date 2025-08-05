@@ -63,6 +63,7 @@ conda create -n cebra python==3.9
 conda activate cebra
 conda install -c conda-forge pytables==3.8.0
 conda install pytorch cudatoolkit=11.3 -c pytorch
+# in jupyter notebook: conda install pytorch pytorch-cuda=12.1 -c pytorch -c nvidia
 conda install -c conda-forge ipykernel mne mkdocs mkdocs-material plotly                         
 ```
 
