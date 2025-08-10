@@ -26,12 +26,14 @@ from config import (
     OUTPUT_ROOT,
 )
 from data import eeg_dataloader
-from eeg.preprocessing import filter_crop_data
+from eeg.perprocessing import filter_crop_data
 from eeg.cebra_pipeline import run_subject_pipeline
 from utils.configs import generate_configurations
 from utils.logger import setup_logger
 
 logger = setup_logger()
+import warnings
+warnings.filterwarnings("ignore", category=RuntimeWarning)
 
 # --------------------------------------------------------------------------------------------
 # Main Execution
@@ -69,17 +71,19 @@ def main():
 
             run_subject_pipeline(
                 subject_key=subject_key,
+                root = DATA_DIR,
                 raw=raw_processed,
                 t_start=t_start,
                 t_end=t_end,
                 band=band_cfg,
                 channels=channels,
+                channels_label=ch_label,
                 output_root=OUTPUT_ROOT,
                 save_html=SAVE_HTML,
-                explore_behavior_data: bool = True, #set to false if only training
-                train_model: bool = True, # set to false if only explorative analyses
+                explore_behavior_data = True, #set to false if only training
+                train_model  = True, # set to false if only explorative analyses
             )
 
-
+    
 if __name__ == "__main__":
     main()

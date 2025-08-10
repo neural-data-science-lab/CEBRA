@@ -40,6 +40,8 @@ from data import eeg_dataloader
 from eeg.colors import valence_arousal_emotion_color
 from eeg.visualization import debug_valence_arousal_distribution
 
+
+
 pio.renderers.default = "browser"
 
 # --------------------------------------------------------------------------------------------
@@ -124,29 +126,21 @@ def prepare_subject_data(
     t_end: int,
     band: Union[str, int, float],
     channels: list,
-    output_root: Path,
+    channels_label: str,
+    root: Path,
 ) -> Tuple[np.ndarray, np.ndarray, np.ndarray, float, str]:
     """
     Preprocess EEG and align behavioral labels.
     Returns: (X, valence_aligned, arousal_aligned, sfreq, config_str)
     """
-    from scipy.interpolate import interp1d
 
-    # Crop + filter + pick channels
-    raw_processed = filter_crop_data(
-        raw,
-        t_start=t_start,
-        t_end=t_end,
-        filter_frequency_band=band,
-        pick_channels=channels,
-    )
 
-    sfreq = raw_processed.info["sfreq"]
-    X = raw_processed.get_data().T  # shape: (samples, channels)
+    sfreq = raw.info["sfreq"]
+    X = raw.get_data().T  # shape: (samples, channels)
     t_eeg = np.arange(X.shape[0]) / sfreq
 
     # Load behavioral labels
-    subject_folder = output_root / subject_key
+    subject_folder = root / subject_key
     beh_df = eeg_dataloader.load_behavioral_labels(subject_folder)
 
     valence = beh_df["valence"].values
@@ -163,7 +157,7 @@ def prepare_subject_data(
         valence_aligned = valence
         arousal_aligned = arousal
 
-    config_str = f"T{t_start}-{t_end}_B{band}_CH{','.join(channels)}"
+    config_str = f"T{t_start}-{t_end}_B{band}_CH{channels_label}"
     return X, valence_aligned, arousal_aligned, sfreq, config_str
 
 def run_cebra_embedding(
@@ -189,11 +183,13 @@ def run_cebra_embedding(
 
 def run_subject_pipeline(
     subject_key: str,
+    root: Path,
     raw: mne.io.Raw,
     t_start: int,
     t_end: int,
     band: Union[str, int, float],
     channels: list,
+    channels_label: str,
     output_root: Path,
     save_html: bool = True,
     save_embedding: bool = True,
@@ -201,8 +197,13 @@ def run_subject_pipeline(
     train_model: bool = True,
 ):
     X, valence_aligned, arousal_aligned, sfreq, config_str = prepare_subject_data(
-        subject_key, raw, t_start, t_end, band, channels, output_root
+        subject_key, raw, t_start, t_end, band, channels, channels_label, root
     )
+
+    if np.isnan(X).any():
+        print(f"[WARNING] NaNs detected in EEG data for {subject_key}, config {config_str}. Replacing NaNs with zero.")
+        # replace NaNs with zero
+        X = np.nan_to_num(X)
 
     if explore_behavior_data:
         debug_valence_arousal_distribution(
@@ -226,83 +227,3 @@ def run_subject_pipeline(
         )
     
     #[TODO] if validate embedding, analyze embeddings
-
-def run_subject_pipeline(
-    subject_key: str,
-    info: Dict[str, object],
-    t_start: int,
-    t_end: int,
-    band: Union[str, int, float],
-    ch_label: str,
-    output_root: Path,
-    save_html: bool = True,
-    save_embeddings: bool = True
-) -> None:
-    """
-    Execute the full CEBRA embedding pipeline for a subject, including behavioral label alignment
-    and saving interactive plots.
-
-    Args:
-        subject_key (str): Subject identifier, e.g., 'sub-001'.
-        info (Dict[str, object]): Dictionary containing subject data, must include 'raw' (mne.io.Raw).
-        t_start (int): Start time in seconds for the analysis window.
-        t_end (int): End time in seconds for the analysis window.
-        band (Union[str, int, float]): Frequency band identifier.
-        ch_label (str): Channel label string.
-        output_root (Path): Directory root where outputs should be saved.
-        save_html (bool): Whether to save the interactive plot as an HTML file. Defaults to True.
-
-    Raises:
-        FileNotFoundError: If behavioral label files are missing.
-    """
-    raw: mne.io.Raw = info["raw"].copy()
-
-    # Convert EEG signals to microvolts
-    raw.apply_function(lambda x: x * 1e6, picks='eeg')
-    sfreq = raw.info["sfreq"]
-
-    # Select EEG channels only
-    picks = mne.pick_types(raw.info, eeg=True, eog=False)
-    X = raw.get_data(picks=picks).T  # shape: (samples, channels)
-
-    # Load behavioral labels
-    subject_folder = output_root / subject_key
-    beh_df = eeg_dataloader.load_behavioral_labels(subject_folder)
-
-    valence = beh_df["valence"].values
-    arousal = beh_df["arousal"].values
-    t_behavior = beh_df["timestamp"].values
-    t_eeg = np.arange(X.shape[0]) / sfreq
-
-    # Align behavioral data with EEG timestamps via interpolation if needed
-    if len(valence) != X.shape[0]:
-        interp_val = interp1d(t_behavior, valence, kind="linear", bounds_error=False, fill_value="extrapolate")
-        interp_aro = interp1d(t_behavior, arousal, kind="linear", bounds_error=False, fill_value="extrapolate")
-        valence_aligned = interp_val(t_eeg)
-        arousal_aligned = interp_aro(t_eeg)
-    else:
-        valence_aligned = valence
-        arousal_aligned = arousal
-
-    config_str = f"T{t_start}-{t_end}_B{band}_CH{ch_label}"
-
-    debug_valence_arousal_distribution(
-        valence_aligned,
-        arousal_aligned,
-        subject_key=subject_key,
-        output_root=output_root,
-        config_str=config_str,
-    )
-
-    fig_title = f"CEBRA - {subject_key} - {config_str}"
-    fig, embedding = quick_run_cebra(X, valence_aligned, arousal_aligned, title=fig_title)
-
-    if save_html:
-        subject_folder.mkdir(parents=True, exist_ok=True)
-        output_file = subject_folder / f"VA_{subject_key}_{config_str}_embedding.html"
-        fig.write_html(str(output_file), auto_open=False)
-
-    if save_embeddings:
-        subject_folder.mkdir(parents=True, exist_ok=True)
-        npy_file = subject_folder / f"embedding_{config_str}.npy"
-        np.save(npy_file, embedding)

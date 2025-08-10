@@ -47,14 +47,14 @@ def filter_crop_data(
     """
     raw = raw.copy()
 
-    if t_start is not None and t_end is not None:
-        raw.crop(tmin=t_start, tmax=t_end)
+    if pick_channels is not None:
+        raw.pick_channels(pick_channels)
 
     if filter_frequency_band is not None:
         fmin, fmax = filter_frequency_band
         raw.filter(fmin, fmax, fir_design='firwin', verbose=False)
-
-    if pick_channels is not None:
-        raw.pick_channels(pick_channels)
+        
+    if t_start is not None and t_end is not None:
+        raw.crop(tmin=t_start, tmax=t_end)
 
     return raw
