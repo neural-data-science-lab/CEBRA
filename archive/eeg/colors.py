@@ -144,7 +144,7 @@ def valence_arousal_emotion_color(
     elif mode == "arousal":
         return arousal_color_rdgy(arousal)
     else:
-        raise ValueError(f"Invalid mode: {mode}. Use 'combined' or 'split'.")
+        raise ValueError(f"Invalid mode: {mode}. Use 'valence', 'arousal' or 'combined'.")
 
 def valence_color_rdylgn(valence: Union[np.ndarray, float]) -> np.ndarray:
     """
