@@ -80,7 +80,7 @@ def main():
                 channels_label=ch_label,
                 output_root=OUTPUT_ROOT,
                 save_html=SAVE_HTML,
-                explore_behavior_data = True, #set to false if only training
+                explore_behavior_data = False, #set to false if only training
                 train_model  = True, # set to false if only explorative analyses
             )
 

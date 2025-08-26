@@ -49,7 +49,7 @@ pio.renderers.default = "browser"
 # --------------------------------------------------------------------------------------------
 
 cebra_model = CEBRA(
-    model_architecture="offset10-model",  # Alternatives: "offset1-model", "offset50-model"
+    model_architecture="offset50-model",  # Alternatives: "offset1-model", "offset10-model"
     batch_size=512,
     learning_rate=3e-4,
     temperature_mode='constant',
@@ -60,7 +60,7 @@ cebra_model = CEBRA(
     distance='cosine',  # Try "euclidean" for different effect
     device="cuda_if_available",
     verbose=True,
-    time_offsets=10,
+    time_offsets=500, # Alternatives 5000 = 10s, 100 ~ 0.1 s
 )
 
 # --------------------------------------------------------------------------------------------
@@ -158,7 +158,7 @@ def prepare_subject_data(
         arousal_aligned = arousal
 
     config_str = f"T{t_start}-{t_end}_B{band}_CH{channels_label}"
-    return X, valence_aligned, arousal_aligned, sfreq, config_str
+    return X, valence, arousal, valence_aligned, arousal_aligned, sfreq, config_str
 
 def run_cebra_embedding(
     X: np.ndarray,
@@ -176,10 +176,10 @@ def run_cebra_embedding(
     subject_folder.mkdir(parents=True, exist_ok=True)
 
     if save_html:
-        fig.write_html(str(subject_folder / f"VA_{subject_key}_{config_str}_embedding.html"))
+        fig.write_html(str(subject_folder / f"Moffset_50_DT500{subject_key}_{config_str}.html"))
 
     if save_embedding:
-        np.save(subject_folder / f"embedding_{config_str}.npy", embedding)
+        np.save(subject_folder / f"Moffset50_DT500{subject_key}_{config_str}.npy", embedding)
 
 def run_subject_pipeline(
     subject_key: str,
@@ -196,7 +196,7 @@ def run_subject_pipeline(
     explore_behavior_data: bool = True,
     train_model: bool = True,
 ):
-    X, valence_aligned, arousal_aligned, sfreq, config_str = prepare_subject_data(
+    X, valence, arousal,  valence_aligned, arousal_aligned, sfreq, config_str = prepare_subject_data(
         subject_key, raw, t_start, t_end, band, channels, channels_label, root
     )
 
@@ -207,8 +207,8 @@ def run_subject_pipeline(
 
     if explore_behavior_data:
         debug_valence_arousal_distribution(
-            valence_aligned,
-            arousal_aligned,
+            valence,
+            arousal,
             subject_key=subject_key,
             output_root=output_root,
             config_str=config_str,
@@ -222,8 +222,8 @@ def run_subject_pipeline(
             subject_key,
             config_str,
             output_root,
-            save_html=save_html,
-            save_embedding=save_embedding,
+            save_html=True,
+            save_embedding=True,
         )
     
     #[TODO] if validate embedding, analyze embeddings

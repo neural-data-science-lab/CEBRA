@@ -102,6 +102,8 @@ def debug_valence_arousal_distribution(
 
 
 def plot_valence_arousal_color_wheel(
+    valence: np.ndarray,
+    arousal: np.ndarray,
     res: int = 300,
     desaturate_color: Tuple[float, float, float] = (1.0, 1.0, 1.0)
 ) -> None:
@@ -115,16 +117,20 @@ def plot_valence_arousal_color_wheel(
     Returns:
         None
     """
+    v_min, v_max = np.min(valence), np.max(valence)
+    a_min, a_max = np.min(arousal), np.max(arousal)
+
     val_grid, aro_grid = np.meshgrid(
-        np.linspace(-1, 1, res),  # Valence: horizontal axis
-        np.linspace(-1, 1, res)   # Arousal: vertical axis
+        np.linspace(v_min, v_max, res),
+        np.linspace(a_min, a_max, res)
     )
+
     val_flat, aro_flat = val_grid.flatten(), aro_grid.flatten()
     colors = valence_arousal_emotion_color(val_flat, aro_flat, desaturate_color)
     image = colors.reshape(res, res, 3)
 
     fig, ax = plt.subplots(figsize=(6, 6))
-    ax.imshow(image, extent=(-1, 1, -1, 1), origin="lower")
+    ax.imshow(image, extent=(v_min, v_max, a_min, a_max), origin="lower")
     ax.set_xlabel("Valence")
     ax.set_ylabel("Arousal")
     ax.set_title("Valence-Arousal Color Wheel\n(Hue by Emotion, Saturation by Intensity)")
@@ -168,6 +174,25 @@ def plot_group_histograms(df: pd.DataFrame, save_path: Path) -> None:
     plt.tight_layout()
     plt.savefig(save_path, dpi=150)
     plt.close()
+
+def plot_group_histograms_originallabels(df: pd.DataFrame, save_path: Path) -> None:
+    """Plot histograms for valence and arousal distributions."""
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+
+    for ax, col in zip(axes, ["flubber_frequency", "flubber_amplitude"]):
+        arr = df[col].to_numpy()
+        ax.hist(arr, bins=30, alpha=0.7, color="skyblue", edgecolor="black")
+        ax.axvline(np.nanmean(arr), color="red", linestyle="--", label="Mean")
+        ax.axvline(np.nanmedian(arr), color="green", linestyle=":", label="Median")
+        ax.set_title(f"{col.capitalize()} Histogram")
+        ax.set_xlabel(col.capitalize())
+        ax.set_ylabel("Frequency")
+        ax.legend()
+
+    plt.tight_layout()
+    plt.savefig(save_path, dpi=150)
+    plt.close()
+
 
 
 def plot_2d_density(df: pd.DataFrame, save_path: Path) -> None:
@@ -378,3 +403,6 @@ def plot_individual_subject_timeseries(df: pd.DataFrame, save_html_path: Path):
 
     fig.write_html(save_html_path)
     print(f"Interactive plot saved to {save_html_path}")
+
+
+

@@ -15,6 +15,7 @@ Created: 10.06.2025
 Last updated: 21.07.2025
 """
 
+
 # --------------------------------------------------------------------------------------------
 # Imports
 # --------------------------------------------------------------------------------------------
@@ -33,6 +34,15 @@ angle_degrees = np.array([45, 135, 225, 315])
 color_hex = ['#ffff00', '#ff0000', '#0000ff', '#00ff00']
 
 rgb_colors = np.array([mcolors.to_rgb(c) for c in color_hex])
+
+# Define RdYlGn and RdGy colormaps with 3 colors each (for valence and arousal)
+valence_cmap = mcolors.LinearSegmentedColormap.from_list(
+    "valence_rdylgn", ["red", "yellow", "green"]
+)
+
+arousal_cmap = mcolors.LinearSegmentedColormap.from_list(
+    "arousal_rdgy", ["gray", "lightgray", "red"]
+)
 
 # --------------------------------------------------------------------------------------------
 # Functions
@@ -54,16 +64,20 @@ def compute_angle_vector_length(
             - angle_deg: Angles in degrees [0, 360).
             - vector_length: Normalized vector lengths [0, 1].
     """
-    val_clipped = np.clip(valence, -1, 1)
-    aro_clipped = np.clip(arousal, -1, 1)
-    x, y = val_clipped, aro_clipped
+    valence = np.asarray(valence, dtype=float)
+    arousal = np.asarray(arousal, dtype=float)
 
-    angle_rad = np.arctan2(y, x)
+    # Angle in degrees using raw scales
+    angle_rad = np.arctan2(arousal, valence)
     angle_deg = (np.degrees(angle_rad) + 360) % 360
 
-    vector_length = np.sqrt(x**2 + y**2) / np.sqrt(2)
-
-    return angle_deg, np.clip(vector_length, 0, 1)
+    # Vector length = Euclidean distance from origin
+    
+    vector_length = np.sqrt(valence**2 + arousal**2)
+    max_length = np.sqrt(2)
+    vector_length = vector_length / max_length
+    
+    return angle_deg, vector_length
 
 
 def interpolate_rgb_from_angle(angle_deg: np.ndarray) -> np.ndarray:
@@ -80,11 +94,15 @@ def interpolate_rgb_from_angle(angle_deg: np.ndarray) -> np.ndarray:
     interpolated_rgb = np.zeros((len(angle_deg), 3))
 
     for i, angle in enumerate(angle_deg):
-        idx = np.searchsorted(angle_degrees, angle) - 1
-        idx = np.clip(idx, 0, len(angle_degrees) - 2)
-
-        angle1, angle2 = angle_degrees[idx], angle_degrees[idx + 1]
-        color1, color2 = rgb_colors[idx], rgb_colors[idx + 1]
+        if angle < angle_degrees[0] or angle >= angle_degrees[-1]:
+            # Wrap-around case: interpolate between last and first colors
+            angle1, angle2 = angle_degrees[-1], angle_degrees[0] + 360
+            color1, color2 = rgb_colors[-1], rgb_colors[0]
+        else:
+            idx = np.searchsorted(angle_degrees, angle) - 1
+            idx = np.clip(idx, 0, len(angle_degrees) - 2)
+            angle1, angle2 = angle_degrees[idx], angle_degrees[idx + 1]
+            color1, color2 = rgb_colors[idx], rgb_colors[idx + 1]
 
         t = (angle - angle1) / (angle2 - angle1)
         interpolated_rgb[i] = (1 - t) * color1 + t * color2
@@ -95,22 +113,68 @@ def interpolate_rgb_from_angle(angle_deg: np.ndarray) -> np.ndarray:
 def valence_arousal_emotion_color(
     valence: np.ndarray,
     arousal: np.ndarray,
-    desaturate_color: Tuple[float, float, float] = (1.0, 1.0, 1.0)
+    desaturate_color: Tuple[float, float, float] = (1.0, 1.0, 1.0),
+    mode: str = "combined"  # "combined" for original angle method, "split" for RdYlGn/RdGy
 ) -> np.ndarray:
     """
-    Convert valence-arousal pairs to RGB colors using the emotional color wheel with saturation.
+    Convert valence-arousal to RGB color using either original emotional wheel
+    or separate RdYlGn (valence) and RdGy (arousal) colormaps blended together.
 
     Args:
-        valence (np.ndarray): Array of valence values.
-        arousal (np.ndarray): Array of arousal values.
-        desaturate_color (Tuple[float, float, float]): RGB color to mix toward for desaturation (default white).
+        valence (np.ndarray): Valence values [-1,1].
+        arousal (np.ndarray): Arousal values [-1,1].
+        desaturate_color (tuple): RGB color to desaturate towards.
+        mode (str): "combined" (default) for angle-based; "split" for RdYlGn/RdGy.
 
     Returns:
-        np.ndarray: Array of RGB colors, shape (len(valence), 3).
+        np.ndarray: RGB color array of shape (N, 3).
     """
-    angle, vector_length = compute_angle_vector_length(valence, arousal)
-    base_rgb = interpolate_rgb_from_angle(angle)
+    valence = np.asarray(valence)
+    arousal = np.asarray(arousal)
+    if mode == "combined":
+        # Original color wheel method
+        angle, vector_length = compute_angle_vector_length(valence, arousal)
+        base_rgb = interpolate_rgb_from_angle(angle)
+        final_rgb = (1 - vector_length[:, None]) * desaturate_color + vector_length[:, None] * base_rgb
+        final_rgb = np.clip(final_rgb, 0, 1)
+        return final_rgb
 
-    # Apply radial saturation: mix toward desaturate_color (usually white)
-    final_rgb = (1 - vector_length[:, None]) * desaturate_color + vector_length[:, None] * base_rgb
-    return np.clip(final_rgb, 0, 1)
+    elif mode == "valence":
+        return valence_color_rdylgn(valence)
+    elif mode == "arousal":
+        return arousal_color_rdgy(arousal)
+    else:
+        raise ValueError(f"Invalid mode: {mode}. Use 'combined' or 'split'.")
+
+def valence_color_rdylgn(valence: Union[np.ndarray, float]) -> np.ndarray:
+    """
+    Map valence values [-1, 1] to RGB colors using RdYlGn colormap (red-yellow-green).
+
+    Args:
+        valence (Union[np.ndarray, float]): Valence values in [-1, 1].
+
+    Returns:
+        np.ndarray: RGB colors (shape (N, 3) or (3,) for single value).
+    """
+    valence = np.clip(np.asarray(valence, dtype=float), -1, 1)
+    # Normalize to [0,1] for colormap input
+    norm_valence = (valence + 1) / 2
+    # Get RGB colors from colormap
+    rgb = valence_cmap(norm_valence)[..., :3]  # drop alpha
+    return rgb
+
+def arousal_color_rdgy(arousal: Union[np.ndarray, float]) -> np.ndarray:
+    """
+    Map arousal values [-1, 1] to RGB colors using RdGy colormap (gray-lightgray-red).
+
+    Args:
+        arousal (Union[np.ndarray, float]): Arousal values in [-1, 1].
+
+    Returns:
+        np.ndarray: RGB colors (shape (N, 3) or (3,) for single value).
+    """
+    arousal = np.clip(np.asarray(arousal, dtype=float), -1, 1)
+    norm_arousal = (arousal + 1) / 2
+    rgb = arousal_cmap(norm_arousal)[..., :3]
+    return rgb
+

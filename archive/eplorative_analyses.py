@@ -52,7 +52,7 @@ def main():
     combined_df = pd.concat(all_behavioral_dfs, ignore_index=True)
     combined_nan_counts = combined_df[['valence', 'arousal']].isna().sum().to_dict()
     logger.info(f"Combined data NaN counts before dropping: {combined_nan_counts}")
-    combined_df = combined_df.dropna(subset=['valence', 'arousal'])
+    combined_df = combined_df.dropna(subset=['valence', 'arousal', 'flubber_frequency',	'flubber_amplitude'])
 
     group_output_dir = OUTPUT_ROOT / "overview_exploration"
     metrics = run_group_exploration(combined_df, group_output_dir)

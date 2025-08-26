@@ -33,6 +33,7 @@ from scipy.stats import skew, kurtosis, iqr, pearsonr
 
 from eeg.visualization import (
     plot_group_histograms,
+    plot_group_histograms_originallabels,
     plot_2d_density,
     plot_grand_mean_timeseries,
     plot_slope_histograms,
@@ -122,6 +123,7 @@ def run_group_exploration(
 
     # ---- Plots ----
     plot_group_histograms(df, output_root / "group_histograms.png")
+    plot_group_histograms_originallabels(df, output_root / "original_group_histograms.png")
     plot_2d_density(df, output_root / "2d_density_valence_arousal.png")
     plot_grand_mean_timeseries(df, output_root / "grand_mean_timeseries.png")
     plot_slope_histograms(df, output_root / "slope_distributions.png")
