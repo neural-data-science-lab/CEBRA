@@ -1,4 +1,6 @@
 **/preproc_cleaned/
 **/*.html
 **/*.png
+**/*.npy
+
 
