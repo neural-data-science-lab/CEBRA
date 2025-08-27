@@ -63,25 +63,28 @@ for npy_file in output_root.glob("sub-*/*.npy"):
         embedding_labels=colors_valence_hex,
         title=f"{subject_key} - {npy_file.stem} - Valence"
     )
-    
+    plt.close('all')
+
 
     fig_arousal = plot_embedding_interactive(
         embedding[idx],
         embedding_labels=colors_arousal_hex,
         title=f"{subject_key} - {npy_file.stem} - Arousal"
     )
-
+    plt.close('all')
     fig_time = plot_embedding_interactive(
         embedding[idx],
         embedding_labels=colors_time,
         title=f"{subject_key} - {npy_file.stem} - Time"
     )
+    plt.close('all')
 
     fig_behaviour = plot_embedding_interactive(
         embedding[idx],
         embedding_labels=colors_joint_hex,
         title=f"{subject_key} - {npy_file.stem} - Behaviour"
     )
+    plt.close('all')
 
     # --- Save as HTML ---
     html_valence_path   = npy_file.with_name(npy_file.stem + "_valence.html")

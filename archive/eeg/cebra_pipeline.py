@@ -24,22 +24,15 @@ Last updated: 21.07.2025
 # --------------------------------------------------------------------------------------------
 
 from pathlib import Path
-from typing import Optional, Dict, Tuple, Union
-
+from typing import Tuple, Union
 import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.colors as mcolors
 import plotly.io as pio
 from scipy.interpolate import interp1d
 import mne
 
 from cebra import CEBRA
-from cebra.integrations.plotly import plot_embedding_interactive
-
 from data import eeg_dataloader
-from eeg.colors import valence_arousal_emotion_color
 from eeg.visualization import debug_valence_arousal_distribution
-
 
 
 pio.renderers.default = "browser"
@@ -69,54 +62,32 @@ cebra_model = CEBRA(
 
 def quick_run_cebra(
     X: np.ndarray,
-    valence_aligned: np.ndarray,
-    arousal_aligned: np.ndarray,
-    title: str = "CEBRA Embedding"
-) -> Tuple[object, np.ndarray]:
+    output_root: Path,
+    subject_key: str,
+    config_str: str,
+
+) -> np.ndarray:
     """
     Fit the CEBRA model on EEG data and generate an interactive embedding plot.
 
     Args:
         X (np.ndarray): EEG data matrix, shape (samples, features).
-        valence_aligned (np.ndarray): Aligned valence labels per sample.
-        arousal_aligned (np.ndarray): Aligned arousal labels per sample.
-        title (str): Title for the embedding plot.
+       output_root (Path): Root folder to save the embedding files.
+        subject_key (str): Identifier for the subject.
+        config_str (str): Configuration string used for naming the output file.
 
     Returns:
-        Tuple[object, np.ndarray]: Plotly figure object and embedding array.
+        np.ndarray: Embedding array of shape (samples, embedding_dimension).
     """
     model = cebra_model.fit(X)
     embedding = model.transform(X)
 
-    # [TODO] Automatically determine sampling frequency instead of hardcoded 500 Hz
-    times = np.arange(X.shape[0]) / 500.0
+    subject_folder = output_root / subject_key
+    subject_folder.mkdir(parents=True, exist_ok=True)
 
-    # Downsample for plotting (limit points to ~15000)
-    n_points = 15000
-    step = max(1, len(X) // n_points)
-    idx = np.arange(0, len(X), step)
+    np.save(subject_folder / f"{subject_key}_{config_str}.npy", embedding)
 
-    embedding_small = embedding[idx]
-    valence_small = valence_aligned[idx]
-    arousal_small = arousal_aligned[idx]
-
-    valid_mask = ~(np.isnan(valence_small) | np.isnan(arousal_small))
-    embedding_small = embedding_small[valid_mask]
-    valence_small = valence_small[valid_mask]
-    arousal_small = arousal_small[valid_mask]
-
-    # Map valence/arousal to RGB colors
-    colors = valence_arousal_emotion_color(valence_small, arousal_small)
-    colors_hex = np.array([mcolors.to_hex(c) for c in colors])
-
-    fig = plot_embedding_interactive(
-        embedding_small,
-        embedding_labels=colors_hex,
-        title=title,
-        markersize=2,
-    )
-    plt.close('all')  # Clean up matplotlib figures
-    return fig, embedding
+    return embedding
 
 
 def prepare_subject_data(
@@ -125,15 +96,32 @@ def prepare_subject_data(
     t_start: int,
     t_end: int,
     band: Union[str, int, float],
-    channels: list,
+    channels: list[str],
     channels_label: str,
     root: Path,
-) -> Tuple[np.ndarray, np.ndarray, np.ndarray, float, str]:
+) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray, np.ndarray, float, str]:
     """
     Preprocess EEG and align behavioral labels.
-    Returns: (X, valence_aligned, arousal_aligned, sfreq, config_str)
-    """
+    Args:
+        subject_key (str): Subject identifier.
+        raw (mne.io.Raw): Raw EEG data object.
+        t_start (int): Start time in seconds for the segment.
+        t_end (int): End time in seconds for the segment.
+        band (Union[str, int, float]): Frequency band or identifier for preprocessing.
+        channels (list[str]): List of channel names to include.
+        channels_label (str): Short label representing selected channels.
+        root (Path): Root folder containing behavioral label files.
 
+    Returns:
+        Tuple containing:
+            - X (np.ndarray): EEG data matrix, shape (samples, channels).
+            - valence (np.ndarray): Original valence labels.
+            - arousal (np.ndarray): Original arousal labels.
+            - valence_aligned (np.ndarray): Valence labels aligned to EEG timestamps.
+            - arousal_aligned (np.ndarray): Arousal labels aligned to EEG timestamps.
+            - sfreq (float): Sampling frequency of the EEG data.
+            - config_str (str): Configuration string for the current preprocessing setup.
+    """
 
     sfreq = raw.info["sfreq"]
     X = raw.get_data().T  # shape: (samples, channels)
@@ -160,26 +148,6 @@ def prepare_subject_data(
     config_str = f"T{t_start}-{t_end}_B{band}_CH{channels_label}"
     return X, valence, arousal, valence_aligned, arousal_aligned, sfreq, config_str
 
-def run_cebra_embedding(
-    X: np.ndarray,
-    valence: np.ndarray,
-    arousal: np.ndarray,
-    subject_key: str,
-    config_str: str,
-    output_root: Path,
-    save_html: bool = True,
-    save_embedding: bool = True
-) -> None:
-    fig, embedding = quick_run_cebra(X, valence, arousal, title=f"CEBRA - {subject_key} - {config_str}")
-
-    subject_folder = output_root / subject_key
-    subject_folder.mkdir(parents=True, exist_ok=True)
-
-    if save_html:
-        fig.write_html(str(subject_folder / f"Moffset_50_DT500{subject_key}_{config_str}.html"))
-
-    if save_embedding:
-        np.save(subject_folder / f"Moffset50_DT500{subject_key}_{config_str}.npy", embedding)
 
 def run_subject_pipeline(
     subject_key: str,
@@ -188,14 +156,32 @@ def run_subject_pipeline(
     t_start: int,
     t_end: int,
     band: Union[str, int, float],
-    channels: list,
+    channels: list[str],
     channels_label: str,
     output_root: Path,
-    save_html: bool = True,
-    save_embedding: bool = True,
     explore_behavior_data: bool = True,
     train_model: bool = True,
-):
+)-> None:
+    """
+    Complete pipeline for processing EEG data for a single subject: preprocess, visualize, and embed.
+
+    Args:
+        subject_key (str): Subject identifier.
+        root (Path): Root folder containing behavioral data.
+        raw (mne.io.Raw): Raw EEG data object.
+        t_start (int): Start time in seconds.
+        t_end (int): End time in seconds.
+        band (Union[str, int, float]): Frequency band or preprocessing identifier.
+        channels (list[str]): Channels to include in preprocessing.
+        channels_label (str): Short label representing selected channels.
+        output_root (Path): Root folder to save outputs (plots, embeddings).
+        explore_behavior_data (bool, optional): Whether to plot valence/arousal distribution. Defaults to True.
+        train_model (bool, optional): Whether to fit the CEBRA model and generate embeddings. Defaults to True.
+
+    Returns:
+        None
+    """
+
     X, valence, arousal,  valence_aligned, arousal_aligned, sfreq, config_str = prepare_subject_data(
         subject_key, raw, t_start, t_end, band, channels, channels_label, root
     )
@@ -214,16 +200,10 @@ def run_subject_pipeline(
             config_str=config_str,
         )
 
-    if train_model: 
-        run_cebra_embedding(
-            X,
-            valence_aligned,
-            arousal_aligned,
-            subject_key,
-            config_str,
-            output_root,
-            save_html=True,
-            save_embedding=True,
-        )
+    if train_model:
+        quick_run_cebra(X, output_root, subject_key, config_str)
+
+        
+ 
     
     #[TODO] if validate embedding, analyze embeddings

@@ -13,8 +13,6 @@ These variables drive systematic preprocessing and analysis workflows.
 
 from pathlib import Path
 
-SAVE_HTML = True
-
 # Path to your EEG data
 DATA_DIR = Path(r"E:\Cris_Work\preproc")
 OUTPUT_ROOT = Path("results")

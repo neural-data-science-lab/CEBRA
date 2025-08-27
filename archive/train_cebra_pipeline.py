@@ -22,7 +22,6 @@ from config import (
     TIME_CONFIGS,
     FILTER_BANDS,
     CHANNEL_CONFIGS,
-    SAVE_HTML,
     OUTPUT_ROOT,
 )
 from data import eeg_dataloader
@@ -79,7 +78,6 @@ def main():
                 channels=channels,
                 channels_label=ch_label,
                 output_root=OUTPUT_ROOT,
-                save_html=SAVE_HTML,
                 explore_behavior_data = False, #set to false if only training
                 train_model  = True, # set to false if only explorative analyses
             )
