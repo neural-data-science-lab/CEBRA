@@ -51,7 +51,7 @@ cebra_model = CEBRA(
     conditional=None,  # Unsupervised mode
     output_dimension=3,
     distance='cosine',  # Try "euclidean" for different effect
-    device="cuda_if_available",
+    device="cuda",
     verbose=True,
     time_offsets=500, # Alternatives 5000 = 10s, 100 ~ 0.1 s
 )
@@ -145,7 +145,11 @@ def prepare_subject_data(
         valence_aligned = valence
         arousal_aligned = arousal
 
-    config_str = f"T{t_start}-{t_end}_B{band}_CH{channels_label}"
+    output_dim = cebra_model.output_dimension
+    time_offset = cebra_model.time_offsets
+    model_arch = cebra_model.model_architecture
+
+    config_str = f"D{output_dim}_TO{time_offset}_M{model_arch}_T{t_start}-{t_end}_B{band}_CH{channels_label}"
     return X, valence, arousal, valence_aligned, arousal_aligned, sfreq, config_str
 
 
