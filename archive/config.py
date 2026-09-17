@@ -23,7 +23,7 @@ OUTPUT_ROOT.mkdir(exist_ok=True)
 TIME_OFFSETS_TO_TEST = [100, 500, 1000, 5000]  # e.g., 0.1s, 0.5s, 1s, 10s
 
 # Subjects
-subject_range = (0, 2)
+subject_range = (0, 50)
 SUBJECT_IDS_TO_LOAD = [f"sub-{i:03d}" for i in range(subject_range[0], subject_range[1])]
 
 # Time cropping windows (in seconds)

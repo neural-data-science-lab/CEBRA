@@ -1,0 +1,31 @@
+subject,feature_set,r2
+sub-001,label (valence/arousal angle),-0.05779106109790835
+sub-001,broadband EEG power,-0.008513249050572097
+sub-001,alpha (8-12Hz) power,-0.005749564827901936
+sub-001,elapsed time in session,-0.02375454017708003
+sub-001,all physiological features,-0.02683784751246309
+sub-002,label (valence/arousal angle),-0.02025901340384132
+sub-002,broadband EEG power,-0.03196902520100737
+sub-002,alpha (8-12Hz) power,-0.010228222157369692
+sub-002,elapsed time in session,-0.01822510239736462
+sub-002,all physiological features,-0.05181152669574123
+sub-003,label (valence/arousal angle),-0.09919813790166511
+sub-003,broadband EEG power,-0.017610175540026494
+sub-003,alpha (8-12Hz) power,-0.06420828876084009
+sub-003,elapsed time in session,-0.04322318165218652
+sub-003,all physiological features,-0.004556474383644897
+sub-004,label (valence/arousal angle),-0.05033097323900761
+sub-004,broadband EEG power,-0.060925174763295085
+sub-004,alpha (8-12Hz) power,-0.056765550328403316
+sub-004,elapsed time in session,-0.1101741213695564
+sub-004,all physiological features,-0.11258757010349565
+sub-005,label (valence/arousal angle),-0.0035363387145893642
+sub-005,broadband EEG power,-0.04561388267725879
+sub-005,alpha (8-12Hz) power,-0.04302592541310943
+sub-005,elapsed time in session,-0.10144691535816772
+sub-005,all physiological features,-0.09650011813295682
+sub-006,label (valence/arousal angle),-0.07847057328905183
+sub-006,broadband EEG power,-0.08630633059303781
+sub-006,alpha (8-12Hz) power,-0.0936754178806639
+sub-006,elapsed time in session,-0.27308318319716507
+sub-006,all physiological features,-0.2792241906902164

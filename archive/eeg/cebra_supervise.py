@@ -7,7 +7,7 @@ import plotly.io as pio
 
 from cebra import CEBRA
 from data import eeg_dataloader
-from eeg.visualization import debug_valence_arousal_distribution
+from archive.exploration.visualization import debug_valence_arousal_distribution
 
 pio.renderers.default = "browser"
 
@@ -38,7 +38,7 @@ cebra_model_continuous = CEBRA(
     temperature=1.12,
     max_iterations=5000,
     conditional="continuous",
-    output_dimension=8,
+    output_dimension=3,
     distance='cosine',
     device="cpu",
     verbose=True,

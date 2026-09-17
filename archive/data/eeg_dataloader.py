@@ -24,6 +24,7 @@ from pathlib import Path
 from typing import Optional, List, Dict
 import mne
 import pandas as pd
+import numpy as np
 
 # --------------------------------------------------------------------------------------------
 # Functions
@@ -67,6 +68,12 @@ def load_subject(subject_folder: Path, data_type: str = "preproc") -> mne.io.Raw
 
     else:
         raise ValueError(f"[ERROR] Invalid data_type '{data_type}'. Use 'preproc' or 'rawdata'.")
+
+    # NaN check and replacement
+    data = raw.get_data()
+    if np.isnan(data).any():
+        print(f"[WARNING] NaNs detected in EEG data for {subject_folder.name}, file {files[0].name}. Replacing NaNs with zero.")
+        raw._data[:] = np.nan_to_num(data)
 
     print(f"[INFO] Loaded {files[0].name} for {subject_folder.name}")
     return raw
@@ -124,8 +131,53 @@ def load_behavioral_labels(subject_folder: Path) -> pd.DataFrame:
     tsv_files = list(beh_folder.glob("*.tsv"))
 
     if not tsv_files:
-        raise FileNotFoundError(f"[ERROR] No .tsv behavioral files found in {beh_folder}")
+        print(f"[WARNING] No behavioral .tsv files found in {beh_folder}, skipping subject {subject_folder.name}")
+        return None
 
     df = pd.read_csv(tsv_files[0], sep="\t")
     print(f"[INFO] Loaded behavioral data: {tsv_files[0].name}")
+    # Drop rows where 'valence' or 'arousal' are NaN
+    # Check for NaN values at the beginning of the series
+    if df['valence'].isnull().iloc[0] or df['arousal'].isnull().iloc[0]:
+        print(f"[WARNING] First row of behavioral data for {subject_folder.name} contains NaN. Cannot forward-fill. Dropping this row.")
+        df.dropna(subset=['valence', 'arousal'], how='any', inplace=True)
+        # Check if any data remains
+        if len(df) == 0:
+            return None
+    
+    # Use forward-fill to impute NaNs with the last valid value
+    df[['valence', 'arousal']] = df[['valence', 'arousal']].ffill()
     return df
+
+def load_all_behavioral_labels(
+    data_dir: str = "data",
+    subjects_to_load: Optional[List[str]] = None
+) -> Dict[str, pd.DataFrame]:
+    """
+    Load behavioral labels for all subjects in the dataset.
+
+    Args:
+        data_dir (str): Path to the data directory containing subject folders.
+        subjects_to_load (Optional[List[str]]): List of subject IDs to load. If None, load all subjects.
+
+    Returns:
+        Dict[str, pd.DataFrame]: Dictionary mapping subject_id -> behavioral DataFrame.
+    """
+    data_path = Path(data_dir)
+    all_labels: Dict[str, pd.DataFrame] = {}
+
+    for subject_folder in sorted(data_path.glob("sub-*")):
+        subject_id = subject_folder.name
+        if subjects_to_load and subject_id not in subjects_to_load:
+            continue
+
+        df = load_behavioral_labels(subject_folder)
+        if df is not None:
+            all_labels[subject_id] = df
+            print(f"[INFO] Loaded behavioral data for {subject_id}")
+        else:
+            print(f"[WARNING] Skipping {subject_id}, no behavioral data found.")
+
+    print(f"[INFO] Total subjects with behavioral data loaded: {len(all_labels)}")
+    return all_labels
+

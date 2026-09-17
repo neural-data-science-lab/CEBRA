@@ -18,12 +18,43 @@ Last updated: 21.07.2025
 # Imports
 # --------------------------------------------------------------------------------------------
 
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Union
+import numpy as np
 import mne
 
 # --------------------------------------------------------------------------------------------
 # Functions
 # --------------------------------------------------------------------------------------------
+def compute_angle_vector_length(
+    valence: Union[np.ndarray, float],
+    arousal: Union[np.ndarray, float]
+) -> Tuple[np.ndarray, np.ndarray]:
+    """
+    Compute angle in degrees and normalized vector length from valence-arousal values.
+
+    Args:
+        valence (Union[np.ndarray, float]): Valence values, expected range [-1, 1].
+        arousal (Union[np.ndarray, float]): Arousal values, expected range [-1, 1].
+
+    Returns:
+        Tuple[np.ndarray, np.ndarray]: 
+            - angle_deg: Angles in degrees [0, 360).
+            - vector_length: Normalized vector lengths [0, 1].
+    """
+    valence = np.asarray(valence, dtype=float)
+    arousal = np.asarray(arousal, dtype=float)
+
+    # Angle in degrees using raw scales
+    angle_rad = np.arctan2(arousal, valence)
+    angle_deg = (np.degrees(angle_rad) + 360) % 360
+
+    # Vector length = Euclidean distance from origin
+    vector_length = np.sqrt(valence**2 + arousal**2)
+    max_length = np.sqrt(2)
+    vector_length = vector_length / max_length
+    
+    return angle_deg, vector_length
+
 
 def filter_crop_data(
     raw: mne.io.Raw,

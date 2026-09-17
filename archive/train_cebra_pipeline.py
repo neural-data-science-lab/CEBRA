@@ -15,7 +15,8 @@ Created: 2025-08-07
 # Imports
 # --------------------------------------------------------------------------------------------
 from pathlib import Path
-
+import pandas as pd
+import numpy as np
 from config import (
     DATA_DIR,
     SUBJECT_IDS_TO_LOAD,
@@ -25,8 +26,9 @@ from config import (
     OUTPUT_ROOT,
 )
 from data import eeg_dataloader
-from eeg.perprocessing import filter_crop_data
+from eeg.perprocessing import compute_angle_vector_length, filter_crop_data
 from eeg.cebra_pipeline import run_subject_pipeline
+from exploration.eplorative_analyses import run_explorative_analyses
 from utils.configs import generate_configurations
 from utils.logger import setup_logger
 
@@ -39,6 +41,23 @@ warnings.filterwarnings("ignore", category=RuntimeWarning)
 # --------------------------------------------------------------------------------------------
 
 def main():
+
+    # Step 1: Explorative analyses of behavioral data
+    all_labels = eeg_dataloader.load_all_behavioral_labels(
+        data_dir=str(DATA_DIR), subjects_to_load=SUBJECT_IDS_TO_LOAD
+    )
+
+    for subject_id, df in all_labels.items():
+        valence = df['valence'].values
+        arousal = df['arousal'].values
+        angle, vector_length = compute_angle_vector_length(valence, arousal)
+        df['angle'] = angle
+        df['vector_length'] = vector_length
+
+    run_explorative_analyses(OUTPUT_ROOT, all_labels)
+
+    return
+    # Step 2: EEG embeddings
     configurations = generate_configurations(
         time_configs=TIME_CONFIGS,
         filter_bands=FILTER_BANDS,
@@ -70,7 +89,6 @@ def main():
 
             run_subject_pipeline(
                 subject_key=subject_key,
-                root = DATA_DIR,
                 raw=raw_processed,
                 t_start=t_start,
                 t_end=t_end,
@@ -78,10 +96,7 @@ def main():
                 channels=channels,
                 channels_label=ch_label,
                 output_root=OUTPUT_ROOT,
-                explore_behavior_data = False, #set to false if only training
-                train_model  = True, # set to false if only explorative analyses
             )
 
-    
 if __name__ == "__main__":
     main()

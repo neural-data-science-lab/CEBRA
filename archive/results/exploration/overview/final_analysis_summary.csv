@@ -1,0 +1,2 @@
+total_subjects,angle_consistency,vector_length_consistency,valence_consistency,arousal_consistency,mean_pct_missing_valence,mean_pct_missing_arousal,mean_pct_missing_angle,mean_pct_missing_vector_length
+44,0.2558638438931212,0.03223564867099383,0.41895698891344263,0.4040516429786539,0.0,0.0,0.0,0.0
